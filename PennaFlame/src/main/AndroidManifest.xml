@@ -26,6 +26,10 @@
             android:name="com.pennaflame.app.MetricActivity"
             android:label="@string/title_activity_metric" >
         </activity>
+        <activity
+            android:name="com.pennaflame.app.HardnessChartActivity"
+            android:label="@string/title_activity_hardness_chart" >
+        </activity>
     </application>
 
 </manifest>

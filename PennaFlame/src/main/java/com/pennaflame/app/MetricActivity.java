@@ -18,7 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class MetricActivity extends ActionBarActivity {
+public class MetricActivity extends PennaFlameBaseActivity {
 
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -31,30 +31,8 @@ public class MetricActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.metric_layout);
 
         mActionBar = getSupportActionBar();
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.navDrawer);
-        mDrawerList.setAdapter(new PFArrayAdapter(this, R.layout.drawer_list_item));
-        mDrawerToggle = new ActionBarDrawerToggle(
-                this,
-                mDrawerLayout,
-                R.drawable.ic_drawer,
-                R.string.drawer_open,
-                R.string.drawer_close) {
-            public void onDrawerClosed(View view) {
-
-            }
-
-            public void onDrawerOpened(View drawerView) {
-            }
-        };
-
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
-        mActionBar.setHomeButtonEnabled(true);
-        mActionBar.setDisplayHomeAsUpEnabled(true);
-
         mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         ActionBar.TabListener tabListener = new ActionBar.TabListener() {
             @Override
@@ -62,18 +40,18 @@ public class MetricActivity extends ActionBarActivity {
                 Fragment fragment;
                 if (tab.getText().equals("English")) {
                     if (englishFragment == null) {
-                        englishFragment = MetricFragment.newInstance(MetricFragment.ENGLISH_TYPE);
+                        englishFragment = MetricActivity.newInstance(MetricFragment.ENGLISH_TYPE);
                     }
                     fragment = englishFragment;
                 } else {
                     if (metricFragment == null) {
-                        metricFragment = MetricFragment.newInstance(MetricFragment.METRIC_TYPE);
+                        metricFragment = MetricActivity.newInstance(MetricFragment.METRIC_TYPE);
                     }
                     fragment = metricFragment;
                 }
                 //switch to the new fragment
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.content, fragment);
+                transaction.replace(R.id.container, fragment);
                 transaction.commit();
             }
 
@@ -99,79 +77,35 @@ public class MetricActivity extends ActionBarActivity {
     }
 
     @Override
-    public void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        mDrawerToggle.syncState();
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        mDrawerToggle.onConfigurationChanged(newConfig);
-    }
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.metric, menu);
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    public static MetricFragment newInstance(int type) {
+        MetricFragment metricFragment = new MetricFragment();
+        Bundle args = new Bundle();
+        args.putInt("type", type);
+        metricFragment.setArguments(args);
+        return metricFragment;
     }
 
-    private class PFArrayAdapter extends ArrayAdapter<String> {
-        public PFArrayAdapter(Context context, int textViewResourceId) {
-            super(context, textViewResourceId);
-        }
+    public static class MetricFragment extends Fragment {
+
+        public static final int ENGLISH_TYPE = 0;
+        public static final int METRIC_TYPE = 1;
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View row = convertView;
-            if (row == null) {
-                LayoutInflater li = (LayoutInflater) MetricActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                row = li.inflate(R.layout.drawer_list_item, null);
-            } else {
-                row = convertView;
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            View view = inflater.inflate(R.layout.english_layout, null);
+            Bundle extras = getArguments();
+            int type = extras.getInt("type");
+            if (type == METRIC_TYPE) {
+                TextView tv = (TextView)view.findViewById(R.id.textView);
+                tv.setText("Metric Fragment");
             }
-
-            TextView tv = (TextView) row.findViewById(R.id.list_item_text);
-            switch(position) {
-                case 0:
-                    tv.setText("Home");
-                    break;
-                case 1:
-                    tv.setText("English/Metric Converter");
-                    break;
-                case 2:
-                    tv.setText("Fraction/Decimal Convert");
-                    break;
-                case 3:
-                    tv.setText("Hardness Case Depth");
-                    break;
-                case 4:
-                    tv.setText("MTI Statement");
-                    break;
-                case 5:
-                    tv.setText("Hardness Chart");
-                    break;
-                case 6:
-                    tv.setText("Contact Us");
-                    break;
-                default:
-            }
-            return row;
-        }
-
-        @Override
-        public int getCount() {
-            return 7;
+            return view;
         }
     }
 }

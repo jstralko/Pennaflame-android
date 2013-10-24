@@ -6,8 +6,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/content" >
-        </FrameLayout>
+        android:id="@+id/container" >
+    </FrameLayout>
     <ListView
         android:id="@+id/navDrawer"
         android:layout_width="240dp"
@@ -19,3 +19,4 @@
         android:dividerHeight="1dp"
         />
 </android.support.v4.widget.DrawerLayout>
+

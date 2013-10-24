@@ -7,5 +7,24 @@
     <string name="title_activity_metric">English/Metric Converter</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+    <string name="title_activity_hardness_chart">Hardness Chart</string>
 
+    <array name="row_header_titles">
+        <item>EQUO TIP Ld</item>
+        <item>ROCKWELL C HRC</item>
+        <item>BRINELL BHN</item>
+        <item>VICKERS HV DPH</item>
+        <item>SHORE C HSc</item>
+        <item>SHORE C HFRSc</item>
+    </array>
+
+    <string-array name="app_sections">
+        <item>Home</item>
+        <item>English / Metric Converter</item>
+        <item>Fraction / Decimal Converter</item>
+        <item>Hardness Case Depth</item>
+        <item>MTI Statement</item>
+        <item>Hardness Chart</item>
+        <item>Contact</item>
+    </string-array>
 </resources>

@@ -1,23 +1,25 @@
 package com.pennaflame.app;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 
 public class MainActivity extends ActionBarActivity {
 
+    private String[] mSections;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mSections = getResources().getStringArray(R.array.app_sections);
         setContentView(R.layout.activity_main);
         GridView gridView = (GridView)findViewById(R.id.home_layout);
         gridView.setAdapter(new HomeAdapter(this));
@@ -39,7 +41,7 @@ public class MainActivity extends ActionBarActivity {
         }
 
         public int getCount() {
-            return 6;
+            return mSections.length - 1;
         }
 
         public Object getItem(int position) {
@@ -59,9 +61,9 @@ public class MainActivity extends ActionBarActivity {
             }
 
             Button button = (Button)v.findViewById(R.id.homeButton);
+            button.setText(mSections[position+1]);
             switch(position) {
                 case 0:
-                    button.setText("English/Metric Converter");
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -71,7 +73,6 @@ public class MainActivity extends ActionBarActivity {
                     });
                     break;
                 case 1:
-                    button.setText("Fraction/Decimal Converter");
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -80,7 +81,6 @@ public class MainActivity extends ActionBarActivity {
                     });
                     break;
                 case 2:
-                    button.setText("Hardness Case Depth");
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -89,7 +89,6 @@ public class MainActivity extends ActionBarActivity {
                     });
                     break;
                 case 3:
-                    button.setText("MTI Statement");
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -98,16 +97,15 @@ public class MainActivity extends ActionBarActivity {
                     });
                     break;
                 case 4:
-                    button.setText("Hardness Chart");
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-
+                            Intent intent = new Intent(MainActivity.this, HardnessChartActivity.class);
+                            startActivity(intent);
                         }
                     });
                     break;
                 case 5:
-                    button.setText("Contact Us");
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
