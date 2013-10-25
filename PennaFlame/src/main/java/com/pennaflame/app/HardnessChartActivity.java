@@ -35,8 +35,8 @@ public class HardnessChartActivity extends PennaFlameBaseActivity {
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
-        int titlesId = intent.getExtras().getInt(MainActivity.ROW_TITLE_ID);
-        int keysId = intent.getExtras().getInt(MainActivity.KEYS_ID);
+        int titlesId = intent.getExtras().getInt(HomeActivity.ROW_TITLE_ID);
+        int keysId = intent.getExtras().getInt(HomeActivity.KEYS_ID);
 
         mDictionary = new HardnessDictionary(this, titlesId, keysId);
 
@@ -125,7 +125,7 @@ public class HardnessChartActivity extends PennaFlameBaseActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.picker_chart_main, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_picker_chart_main, container, false);
             mChart = (WebView)rootView.findViewById(R.id.chartWebView);
             //mChart.getSettings().setDisplayZoomControls(true);
             topSpinner = (Spinner)rootView.findViewById(R.id.topSpinner);

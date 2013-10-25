@@ -11,7 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 
-public class MainActivity extends ActionBarActivity {
+public class HomeActivity extends ActionBarActivity {
 
     public static final String ROW_TITLE_ID = "row_header_title_id";
     public static final String KEYS_ID = "keys_id";
@@ -69,7 +69,7 @@ public class MainActivity extends ActionBarActivity {
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Intent intent = new Intent(MainActivity.this, MetricActivity.class);
+                            Intent intent = new Intent(HomeActivity.this, MetricActivity.class);
                             startActivity(intent);
                         }
                     });
@@ -86,7 +86,7 @@ public class MainActivity extends ActionBarActivity {
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Intent intent = new Intent(MainActivity.this, HardnessChartActivity.class);
+                            Intent intent = new Intent(HomeActivity.this, HardnessChartActivity.class);
                             intent.putExtra(ROW_TITLE_ID, R.array.case_depth_row_header_titles);
                             intent.putExtra(KEYS_ID, R.array.case_depth_keys);
                             startActivity(intent);
@@ -97,7 +97,7 @@ public class MainActivity extends ActionBarActivity {
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Intent intent = new Intent(MainActivity.this, MTIStatementActivity.class);
+                            Intent intent = new Intent(HomeActivity.this, MTIStatementActivity.class);
                             startActivity(intent);
                         }
                     });
@@ -106,7 +106,7 @@ public class MainActivity extends ActionBarActivity {
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Intent intent = new Intent(MainActivity.this, HardnessChartActivity.class);
+                            Intent intent = new Intent(HomeActivity.this, HardnessChartActivity.class);
                             intent.putExtra(ROW_TITLE_ID, R.array.row_header_titles);
                             intent.putExtra(KEYS_ID, R.array.keys);
                             startActivity(intent);
@@ -117,7 +117,7 @@ public class MainActivity extends ActionBarActivity {
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Intent intent = new Intent(MainActivity.this, ContactActivity.class);
+                            Intent intent = new Intent(HomeActivity.this, ContactActivity.class);
                             startActivity(intent);
                         }
                     });

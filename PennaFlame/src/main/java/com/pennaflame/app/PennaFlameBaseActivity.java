@@ -30,7 +30,7 @@ public class PennaFlameBaseActivity extends ActionBarActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_base_penna_flame_main);
 
         mSections = getResources().getStringArray(R.array.app_sections);
 
