@@ -1,6 +1,7 @@
 package com.pennaflame.app;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -38,6 +40,46 @@ public class PennaFlameBaseActivity extends ActionBarActivity{
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.navDrawer);
         mDrawerList.setAdapter(new PFArrayAdapter(this, R.layout.drawer_list_item));
+        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = null;
+                    switch (position) {
+                        case 0:
+                            intent  = new Intent(PennaFlameBaseActivity.this, HomeActivity.class);
+                         break;
+                        case 1:
+                            intent = new Intent(PennaFlameBaseActivity.this, MetricActivity.class);
+                            break;
+                        case 2:
+                            //intent = new Intent(PennaFlameBaseActivity.this, )
+                            break;
+                        case 3:
+                            intent = new Intent(PennaFlameBaseActivity.this, HardnessChartActivity.class);
+                            intent.putExtra(HomeActivity.ROW_TITLE_ID, R.array.case_depth_row_header_titles);
+                            intent.putExtra(HomeActivity.KEYS_ID, R.array.case_depth_keys);
+                            break;
+                        case 4:
+                            intent = new Intent(PennaFlameBaseActivity.this, MTIStatementActivity.class);
+                            break;
+                        case 5:
+                            intent = new Intent(PennaFlameBaseActivity.this, HardnessChartActivity.class);
+                            intent.putExtra(HomeActivity.ROW_TITLE_ID, R.array.row_header_titles);
+                            intent.putExtra(HomeActivity.KEYS_ID, R.array.keys);
+                            break;
+                        case 6:
+                            intent = new Intent(PennaFlameBaseActivity.this, ContactActivity.class);
+                            break;
+                    }
+
+                    if (intent != null) {
+                        //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        overridePendingTransition(0, 0);
+                    }
+            }
+        });
+
         mDrawerToggle = new ActionBarDrawerToggle(
                 this,
                 mDrawerLayout,
@@ -53,6 +95,7 @@ public class PennaFlameBaseActivity extends ActionBarActivity{
         };
 
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+
         mActionBar.setHomeButtonEnabled(true);
         mActionBar.setDisplayHomeAsUpEnabled(true);
     }
