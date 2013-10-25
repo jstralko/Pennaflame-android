@@ -15,6 +15,7 @@ public class HomeActivity extends ActionBarActivity {
 
     public static final String ROW_TITLE_ID = "row_header_title_id";
     public static final String KEYS_ID = "keys_id";
+    public static final String CHART_TITLE_ID = "chart_title_id";
 
     private String[] mSections;
 
@@ -89,6 +90,7 @@ public class HomeActivity extends ActionBarActivity {
                             Intent intent = new Intent(HomeActivity.this, HardnessChartActivity.class);
                             intent.putExtra(ROW_TITLE_ID, R.array.case_depth_row_header_titles);
                             intent.putExtra(KEYS_ID, R.array.case_depth_keys);
+                            intent.putExtra(CHART_TITLE_ID, R.string.title_activity_hardness_case_depth);
                             startActivity(intent);
                         }
                     });
@@ -109,6 +111,7 @@ public class HomeActivity extends ActionBarActivity {
                             Intent intent = new Intent(HomeActivity.this, HardnessChartActivity.class);
                             intent.putExtra(ROW_TITLE_ID, R.array.row_header_titles);
                             intent.putExtra(KEYS_ID, R.array.keys);
+                            intent.putExtra(CHART_TITLE_ID, R.string.title_activity_hardness_chart);
                             startActivity(intent);
                         }
                     });

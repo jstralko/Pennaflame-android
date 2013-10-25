@@ -37,6 +37,9 @@ public class HardnessChartActivity extends PennaFlameBaseActivity {
         Intent intent = getIntent();
         int titlesId = intent.getExtras().getInt(HomeActivity.ROW_TITLE_ID);
         int keysId = intent.getExtras().getInt(HomeActivity.KEYS_ID);
+        
+        int titleId = intent.getExtras().getInt(HomeActivity.CHART_TITLE_ID);
+        getActionBar().setTitle(getString(titleId));
 
         mDictionary = new HardnessDictionary(this, titlesId, keysId);
 
