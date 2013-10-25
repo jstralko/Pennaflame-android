@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="case_depth_keys">
+        <item>@array/material</item>
+        <item>@array/hardness</item>
+        <item>@array/case_depth_inches</item>
+    </array>
+    <array name="material">
+        <item>1045</item>
+        <item>1055</item>
+        <item>1060</item>
+        <item>4130</item>
+        <item>4140</item>
+        <item>4150</item>
+        <item>4340</item>
+        <item>6150</item>
+        <item>52100</item>
+    </array>
+    <array name="hardness">
+        <item>50/60</item>
+        <item>55/62</item>
+        <item>58/65</item>
+        <item>40/48</item>
+        <item>50/55</item>
+        <item>56/60</item>
+        <item>50/55</item>
+        <item>55/60</item>
+        <item>62/66</item>
+    </array>
+    <array name="case_depth_inches">
+        <item>1/8</item>
+        <item>1/8</item>
+        <item>1/8</item>
+        <item>3/16</item>
+        <item>3/16</item>
+        <item>3/16</item>
+        <item>1/4</item>
+        <item>3/16</item>
+        <item>1/4</item>
+    </array>
+    
+</resources>

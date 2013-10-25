@@ -19,12 +19,12 @@ public class HardnessDictionary extends HashMap <String, ArrayList<CharSequence>
 
     private Context mContext;
 
-    public HardnessDictionary(Context context) {
+    public HardnessDictionary(Context context, int titleResourceId, int keyResourceId) {
         mContext = context;
         Resources res = mContext.getResources();
 
-        mRowHeaderTitles = res.getStringArray(R.array.row_header_titles);
-        TypedArray myArray = res.obtainTypedArray(R.array.keys);
+        mRowHeaderTitles = res.getStringArray(titleResourceId);
+        TypedArray myArray = res.obtainTypedArray(keyResourceId);
         int columns = myArray.length();
         for(int i = 0; i < columns; i++) {
             int rowid = myArray.peekValue(i).resourceId;
@@ -41,6 +41,4 @@ public class HardnessDictionary extends HashMap <String, ArrayList<CharSequence>
             }
         }
     }
-
-
 }

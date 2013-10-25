@@ -3,7 +3,6 @@
 
     <string name="app_name">PennaFlame</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_metric">English/Metric Converter</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
@@ -18,13 +17,19 @@
         <item>SHORE C HFRSc</item>
     </array>
 
+    <array name="case_depth_row_header_titles">
+        <item>MATERIAL (ASM)</item>
+        <item>HARDNESS (Rc)</item>
+        <item>Case Depth Inches</item>
+    </array>
+
     <string-array name="app_sections">
         <item>Home</item>
-        <item>English / Metric Converter</item>
+        <item>@string/title_activity_metric</item>
         <item>Fraction / Decimal Converter</item>
         <item>Hardness Case Depth</item>
         <item>MTI Statement</item>
-        <item>Hardness Chart</item>
+        <item>@string/title_activity_hardness_chart</item>
         <item>Contact</item>
     </string-array>
 </resources>

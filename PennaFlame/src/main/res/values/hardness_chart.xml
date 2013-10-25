@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <array name="keys">
         <item>@array/EQUO_TIP_Ld</item>
         <item>@array/BRINELL_BHN</item>
@@ -9,7 +8,6 @@
         <item>@array/SHORE_C_HFRSc</item>
         <item>@array/SHORE_C_HSc</item>
     </array>
-
     <array name="EQUO_TIP_Ld">
         <item>890</item>
         <item>878</item>

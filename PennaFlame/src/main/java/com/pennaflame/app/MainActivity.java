@@ -3,7 +3,6 @@ package com.pennaflame.app;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.View;
@@ -13,6 +12,9 @@ import android.widget.Button;
 import android.widget.GridView;
 
 public class MainActivity extends ActionBarActivity {
+
+    public static final String ROW_TITLE_ID = "row_header_title_id";
+    public static final String KEYS_ID = "keys_id";
 
     private String[] mSections;
 
@@ -84,7 +86,10 @@ public class MainActivity extends ActionBarActivity {
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-
+                            Intent intent = new Intent(MainActivity.this, HardnessChartActivity.class);
+                            intent.putExtra(ROW_TITLE_ID, R.array.case_depth_row_header_titles);
+                            intent.putExtra(KEYS_ID, R.array.case_depth_keys);
+                            startActivity(intent);
                         }
                     });
                     break;
@@ -101,6 +106,8 @@ public class MainActivity extends ActionBarActivity {
                         @Override
                         public void onClick(View view) {
                             Intent intent = new Intent(MainActivity.this, HardnessChartActivity.class);
+                            intent.putExtra(ROW_TITLE_ID, R.array.row_header_titles);
+                            intent.putExtra(KEYS_ID, R.array.keys);
                             startActivity(intent);
                         }
                     });

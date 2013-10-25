@@ -1,6 +1,6 @@
 package com.pennaflame.app;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,8 +20,11 @@ public class HardnessChartActivity extends PennaFlameBaseActivity {
 
         super.onCreate(savedInstanceState);
 
+        Intent intent = getIntent();
+        int titlesId = intent.getExtras().getInt(MainActivity.ROW_TITLE_ID);
+        int keysId = intent.getExtras().getInt(MainActivity.KEYS_ID);
 
-        mDictionary = new HardnessDictionary(this);
+        mDictionary = new HardnessDictionary(this, titlesId, keysId);
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
