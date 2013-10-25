@@ -16,7 +16,6 @@
         <item>SHORE C HSc</item>
         <item>SHORE C HFRSc</item>
     </array>
-
     <array name="case_depth_row_header_titles">
         <item>MATERIAL (ASM)</item>
         <item>HARDNESS (Rc)</item>
@@ -32,4 +31,8 @@
         <item>@string/title_activity_hardness_chart</item>
         <item>Contact</item>
     </string-array>
+
+    <string name="title_activity_mtistatement">MTI Statement</string>
+    <string name="hello_world">Hello world!</string>
+
 </resources>
