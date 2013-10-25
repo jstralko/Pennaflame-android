@@ -42,7 +42,6 @@ public class HardnessChartActivity extends PennaFlameBaseActivity {
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    //.add(R.id.container, new HardnessChartFragment())
                     .add(R.id.container, new HardnessPickChartFragment())
                     .commit();
         }
