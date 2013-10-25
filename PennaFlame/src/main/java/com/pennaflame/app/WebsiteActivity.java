@@ -1,23 +1,27 @@
 package com.pennaflame.app;
 
-import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.os.Build;
 import android.webkit.WebView;
 
-public class MTIStatementActivity extends PennaFlameBaseActivity {
+public class WebsiteActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_website);
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new MTIStatementFragment())
+                    .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
     }
@@ -27,7 +31,7 @@ public class MTIStatementActivity extends PennaFlameBaseActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.mtistatement, menu);
+        getMenuInflater().inflate(R.menu.website, menu);
         return true;
     }
 
@@ -46,17 +50,17 @@ public class MTIStatementActivity extends PennaFlameBaseActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class MTIStatementFragment extends Fragment {
+    public static class PlaceholderFragment extends Fragment {
 
-        public MTIStatementFragment() {
+        public PlaceholderFragment() {
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_mtistatment, container, false);
-            WebView wv = (WebView)rootView.findViewById(R.id.mtiWebView);
-            wv.loadUrl("file:///android_asset/mtistatement.html");
+            View rootView = inflater.inflate(R.layout.fragment_website, container, false);
+            WebView wv = (WebView)rootView.findViewById(R.id.webView);
+            wv.loadUrl("http://www.pennaflame.com");
             return rootView;
         }
     }

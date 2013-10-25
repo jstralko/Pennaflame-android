@@ -34,5 +34,7 @@
 
     <string name="title_activity_mtistatement">MTI Statement</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_contact">Contact</string>
+    <string name="title_activity_website">PennaFlame</string>
 
 </resources>

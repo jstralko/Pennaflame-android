@@ -8,6 +8,9 @@
         android:minSdkVersion="7"
         android:targetSdkVersion="16" />
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -33,6 +36,18 @@
         <activity
             android:name="com.pennaflame.app.MTIStatementActivity"
             android:label="@string/title_activity_mtistatement" >
+        </activity>
+        <activity
+            android:name="com.pennaflame.app.ContactActivity"
+            android:label="@string/title_activity_contact" >
+        </activity>
+        <activity
+            android:name="com.pennaflame.app.WebsiteActivity"
+            android:label="@string/title_activity_website"
+            android:parentActivityName="ContactActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ContactActivity" />
         </activity>
     </application>
 
