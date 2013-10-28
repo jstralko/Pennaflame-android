@@ -56,6 +56,10 @@ public class MTIStatementActivity extends PennaFlameBaseActivity {
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_mtistatment, container, false);
             WebView wv = (WebView)rootView.findViewById(R.id.mtiWebView);
+            wv.getSettings().setBuiltInZoomControls(true);
+            if (android.os.Build.VERSION.SDK_INT>=android.os.Build.VERSION_CODES.HONEYCOMB) {
+                wv.getSettings().setDisplayZoomControls(false);
+            }
             wv.loadUrl("file:///android_asset/mtistatement.html");
             return rootView;
         }
