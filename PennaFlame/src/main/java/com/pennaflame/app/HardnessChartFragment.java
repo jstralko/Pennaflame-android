@@ -36,6 +36,10 @@ public class HardnessChartFragment extends Fragment {
         mDictionary = (HardnessDictionary)getArguments().getSerializable("dictionary");
         View rootView = inflater.inflate(R.layout.fragment_main_webview, container, false);
         mChart = (WebView)rootView.findViewById(R.id.wvChart);
+        mChart.getSettings().setBuiltInZoomControls(true);
+        if (android.os.Build.VERSION.SDK_INT>=android.os.Build.VERSION_CODES.HONEYCOMB) {
+            mChart.getSettings().setDisplayZoomControls(false);
+        }
         return rootView;
     }
 
