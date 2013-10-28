@@ -1,67 +1,72 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ContactActivity$PlaceholderFragment">
-
-    <ImageView
-        android:layout_height="50dp"
-        android:layout_width="wrap_content"
-        android:src="@drawable/layer12nomerge"
-        />
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text='"Pursuing Excellence"'
-        android:id="@+id/textView"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="25dp"
-        android:textStyle="bold|italic" />
-
-    <Button
+    android:layout_height="wrap_content">
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Call"
-        android:id="@+id/callButton"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="25dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ContactActivity$PlaceholderFragment">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Email"
-        android:id="@+id/emailButton"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="25dp" />
+        <ImageView
+            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:src="@drawable/layer12nomerge"
+            />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Website"
-        android:id="@+id/websiteButton"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="25dp" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text='"Pursuing Excellence"'
+            android:id="@+id/textView"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="25dp"
+            android:textStyle="bold|italic" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="114dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/contactInfoTextView"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:gravity="center_vertical|center_horizontal"
-        android:textStyle="bold|italic"
-        android:layout_marginTop="25dp" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Call"
+            android:id="@+id/callButton"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="25dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:id="@+id/emailButton"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="25dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Website"
+            android:id="@+id/websiteButton"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="25dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="114dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/contactInfoTextView"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:textStyle="bold|italic"
+            android:layout_marginTop="25dp" />
 
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

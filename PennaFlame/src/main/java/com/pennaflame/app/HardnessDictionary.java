@@ -6,6 +6,7 @@ import android.content.res.TypedArray;
 
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
 /**
  * Created by stralko on 10/23/13.
  */
-public class HardnessDictionary extends HashMap <String, ArrayList<CharSequence>> {
+public class HardnessDictionary extends HashMap <String, ArrayList<CharSequence>> implements Serializable {
 
     private String mRowHeaderTitles[];
 

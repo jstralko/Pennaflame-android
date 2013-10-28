@@ -8,6 +8,7 @@
     <string name="drawer_close">Close</string>
     <string name="title_activity_hardness_chart">Hardness Chart</string>
     <string name="title_activity_hardness_case_depth">Hardness Case Depth</string>
+    <string name="spinner_prompt">Select</string>
 
     <array name="row_header_titles">
         <item>EQUO TIP Ld</item>

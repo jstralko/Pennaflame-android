@@ -1,39 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="match_parent">
-
-    <Spinner
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent">
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/topSpinner"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp" />
+        android:layout_height="match_parent">
 
-    <Spinner
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/rangeSpinner"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp" />
-    <WebView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/chartWebView"
-        android:layout_gravity="center_horizontal"
-        android:visibility="gone"
-        android:layout_marginTop="25dp" />
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/topSpinner"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:spinnerMode="dialog"
+            android:prompt="@string/spinner_prompt" />
 
-    <Button
-        android:layout_width="268dp"
-        android:layout_height="wrap_content"
-        android:text="Show Chart"
-        android:id="@+id/showButton"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="25dp" />
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rangeSpinner"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:spinnerMode="dialog"
+            android:prompt="@string/spinner_prompt" />
+        <WebView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/chartWebView"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone"
+            android:layout_marginTop="25dp" />
 
-</LinearLayout>
+        <Button
+            android:layout_width="268dp"
+            android:layout_height="wrap_content"
+            android:text="Show Chart"
+            android:id="@+id/showButton"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25dp" />
+
+    </LinearLayout>
+</ScrollView>
