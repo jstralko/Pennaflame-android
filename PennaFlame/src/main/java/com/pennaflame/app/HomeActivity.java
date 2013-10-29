@@ -87,7 +87,7 @@ public class HomeActivity extends ActionBarActivity {
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Intent intent = new Intent(HomeActivity.this, HardnessChartActivity.class);
+                            Intent intent = new Intent(HomeActivity.this, HardnessChartPickActivity.class);
                             intent.putExtra(ROW_TITLE_ID, R.array.case_depth_row_header_titles);
                             intent.putExtra(KEYS_ID, R.array.case_depth_keys);
                             intent.putExtra(CHART_TITLE_ID, R.string.title_activity_hardness_case_depth);
@@ -108,7 +108,7 @@ public class HomeActivity extends ActionBarActivity {
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Intent intent = new Intent(HomeActivity.this, HardnessChartActivity.class);
+                            Intent intent = new Intent(HomeActivity.this, HardnessChartPickActivity.class);
                             intent.putExtra(ROW_TITLE_ID, R.array.row_header_titles);
                             intent.putExtra(KEYS_ID, R.array.keys);
                             intent.putExtra(CHART_TITLE_ID, R.string.title_activity_hardness_chart);

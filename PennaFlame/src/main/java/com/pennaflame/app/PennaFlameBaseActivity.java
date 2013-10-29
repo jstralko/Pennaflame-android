@@ -55,7 +55,7 @@ public class PennaFlameBaseActivity extends ActionBarActivity{
                             //intent = new Intent(PennaFlameBaseActivity.this, )
                             break;
                         case 3:
-                            intent = new Intent(PennaFlameBaseActivity.this, HardnessChartActivity.class);
+                            intent = new Intent(PennaFlameBaseActivity.this, HardnessChartPickActivity.class);
                             intent.putExtra(HomeActivity.ROW_TITLE_ID, R.array.case_depth_row_header_titles);
                             intent.putExtra(HomeActivity.KEYS_ID, R.array.case_depth_keys);
                             break;
@@ -63,7 +63,7 @@ public class PennaFlameBaseActivity extends ActionBarActivity{
                             intent = new Intent(PennaFlameBaseActivity.this, MTIStatementActivity.class);
                             break;
                         case 5:
-                            intent = new Intent(PennaFlameBaseActivity.this, HardnessChartActivity.class);
+                            intent = new Intent(PennaFlameBaseActivity.this, HardnessChartPickActivity.class);
                             intent.putExtra(HomeActivity.ROW_TITLE_ID, R.array.row_header_titles);
                             intent.putExtra(HomeActivity.KEYS_ID, R.array.keys);
                             break;

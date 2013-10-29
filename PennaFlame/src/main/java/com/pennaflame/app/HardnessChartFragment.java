@@ -17,14 +17,14 @@ import android.webkit.WebView;
 public class HardnessChartFragment extends Fragment {
 
     private WebView mChart;
-    private HardnessDictionary mDictionary;
+    private String mHtml;
 
     public HardnessChartFragment() {
     }
 
-    public static Fragment newInstance(HardnessDictionary dictionary) {
+    public static Fragment newInstance(String html) {
         Bundle args = new Bundle();
-        args.putSerializable("dictionary", dictionary);
+        args.putString("html", html);
         HardnessChartFragment hcf = new HardnessChartFragment();
         hcf.setArguments(args);
         return hcf;
@@ -33,7 +33,7 @@ public class HardnessChartFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mDictionary = (HardnessDictionary)getArguments().getSerializable("dictionary");
+        mHtml = getArguments().getString("html");
         View rootView = inflater.inflate(R.layout.fragment_main_webview, container, false);
         mChart = (WebView)rootView.findViewById(R.id.wvChart);
         mChart.getSettings().setBuiltInZoomControls(true);
@@ -46,27 +46,6 @@ public class HardnessChartFragment extends Fragment {
     @Override
     public void onActivityCreated (Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        StringBuilder html = new StringBuilder();
-        html.append("<html><head></head><body style=\"background-color:#BDBBBB;\">" +
-                "<table width=\"90%%\" border=\"1\" align=\"center\" cellpadding=\"3\" cellspacing=\"0\" bordercolor=\"#CCCCC\">\n" +
-                "<tbody>" +
-                "<tr bgcolor=\"lightgrey\" align=\"center\">");
-        for (String key : mDictionary.keySet()) {
-            html.append(String.format("<td bgcolor=\"#FF0000\"><span style=\"font-weight:bold\">%s</span></td>", key));
-        }
-        html.append("</tr>");
-
-        int total = mDictionary.get(mDictionary.keySet().iterator().next()).size();
-        for (int i = 0; i < total; i++) {
-            html.append("<tr bgcolor=\"white\">");
-            for (String key : mDictionary.keySet()) {
-                html.append(String.format("<td><div align=\"center\">%s</div></td>", mDictionary.get(key).get(i)));
-            }
-        }
-        html.append("</tr>");
-        html.append("</table></body></html");
-
-        mChart.loadData(html.toString(), "text/html", "UTF-8");
+        mChart.loadData(mHtml, "text/html", "UTF-8");
     }
 }

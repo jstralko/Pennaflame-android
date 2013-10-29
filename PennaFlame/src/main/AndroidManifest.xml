@@ -19,7 +19,7 @@
         <activity
             android:name="com.pennaflame.app.HomeActivity"
             android:label="@string/app_name"
-            android:launchMode="singleInstance">
+            android:launchMode="singleInstance" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,7 +31,7 @@
             android:label="@string/title_activity_metric" >
         </activity>
         <activity
-            android:name="com.pennaflame.app.HardnessChartActivity"
+            android:name="com.pennaflame.app.HardnessChartPickActivity"
             android:label="@string/title_activity_hardness_chart" >
         </activity>
         <activity
@@ -49,6 +49,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ContactActivity" />
+        </activity>
+        <activity
+            android:name="com.pennaflame.app.HardnessChartActivity"
+            android:label="@string/title_activity_hardness_chart"
+            android:parentActivityName="HardnessChartPickActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="HardnessChartPickActivity" />
         </activity>
     </application>
 

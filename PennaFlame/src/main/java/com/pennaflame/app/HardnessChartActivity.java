@@ -3,42 +3,30 @@ package com.pennaflame.app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
-import android.view.LayoutInflater;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.Spinner;
-import android.widget.TextView;
 
-import java.util.Set;
+public class HardnessChartActivity extends ActionBarActivity {
 
-public class HardnessChartActivity extends PennaFlameBaseActivity {
-
-    private HardnessDictionary mDictionary;
-
+    private int mTitlesId;
+    private int mKeysId;
+    private int mTitleId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Intent intent = getIntent();
-        int titlesId = intent.getExtras().getInt(HomeActivity.ROW_TITLE_ID);
-        int keysId = intent.getExtras().getInt(HomeActivity.KEYS_ID);
-
-        int titleId = intent.getExtras().getInt(HomeActivity.CHART_TITLE_ID);
-        getSupportActionBar().setTitle(getString(titleId));
-
-        mDictionary = new HardnessDictionary(this, titlesId, keysId);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setContentView(R.layout.activity_chart);
         if (savedInstanceState == null) {
-            Fragment hpcf = HardnessPickChartFragment.newInstance(mDictionary);
+            Intent intent = getIntent();
+            String html = intent.getExtras().getString("html");
+            mTitlesId = intent.getExtras().getInt(HomeActivity.ROW_TITLE_ID);
+            mKeysId =  intent.getExtras().getInt(HomeActivity.KEYS_ID);
+            mTitleId = intent.getExtras().getInt(HomeActivity.CHART_TITLE_ID);
+            Fragment f = HardnessChartFragment.newInstance(html);
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, hpcf)
+                    .add(R.id.container, f)
                     .commit();
         }
     }
@@ -58,10 +46,27 @@ public class HardnessChartActivity extends PennaFlameBaseActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
+            /*
+             * This way is probably overkill, I'm learning how parent/child activity
+             * framework works.
+             * Since back and up will _always_ go to the same activity within the same
+             * app, a finish() call would have worked with passing upIntent.
+             * However, I want to fully understand how this stuff works, since it
+             * kind of new (for me atleast).
+             *
+             * If this give you problems, feel free to remove it in favor of
+             * finish()
+             */
+            case android.R.id.home:
+                Intent upIntent = NavUtils.getParentActivityIntent(this);
+                upIntent.putExtra(HomeActivity.ROW_TITLE_ID, mTitlesId);
+                upIntent.putExtra(HomeActivity.KEYS_ID, mKeysId);
+                upIntent.putExtra(HomeActivity.CHART_TITLE_ID, mTitleId);
+                NavUtils.navigateUpTo(this, upIntent);
+                return true;
             case R.id.action_settings:
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
-
 }
