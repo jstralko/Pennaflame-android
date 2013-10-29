@@ -21,7 +21,7 @@ public class WebsiteActivity extends ActionBarActivity {
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
+                    .add(R.id.container, new WebsiteFragment())
                     .commit();
         }
     }
@@ -50,9 +50,9 @@ public class WebsiteActivity extends ActionBarActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
+    public static class WebsiteFragment extends Fragment {
 
-        public PlaceholderFragment() {
+        public WebsiteFragment() {
         }
 
         @Override
@@ -61,6 +61,11 @@ public class WebsiteActivity extends ActionBarActivity {
             View rootView = inflater.inflate(R.layout.fragment_website, container, false);
             WebView wv = (WebView)rootView.findViewById(R.id.webView);
             wv.loadUrl("http://www.pennaflame.com");
+	    wv.getSettings().setBuiltInZoomControls(true);
+	    if (android.os.Build.VERSION.SDK_INT>=android.os.Build.VERSION_CODES.HONEYCOMB) {
+            	wv.getSettings().setDisplayZoomControls(false);
+	    }
+
             return rootView;
         }
     }
