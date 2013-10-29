@@ -51,7 +51,6 @@ public class HardnessPickChartFragment extends Fragment implements Spinner.OnIte
         mDictionary = (HardnessDictionary)getArguments().getSerializable("dictionary");
         View rootView = inflater.inflate(R.layout.fragment_picker_chart_main, container, false);
         mChart = (WebView)rootView.findViewById(R.id.chartWebView);
-        //mChart.getSettings().setDisplayZoomControls(true);
         topSpinner = (Spinner)rootView.findViewById(R.id.topSpinner);
         topSpinnerAdapter = new PFSpinnerAdapter(topSpinner);
         topSpinner.setAdapter(topSpinnerAdapter);
@@ -101,8 +100,10 @@ public class HardnessPickChartFragment extends Fragment implements Spinner.OnIte
     }
 
     public void onItemSelected(AdapterView<?> adapter, View view, int pos, long id) {
-        if (view == topSpinner) {
+        if (adapter == topSpinner) {
+            int selectedIndex = rangeSpinner.getSelectedItemPosition();
             rangeSpinnerAdapter.notifyDataSetChanged();
+            rangeSpinner.setSelection(selectedIndex);
             return;
         }
 
