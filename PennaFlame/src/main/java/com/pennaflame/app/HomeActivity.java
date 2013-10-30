@@ -71,7 +71,6 @@ public class HomeActivity extends ActionBarActivity {
                         @Override
                         public void onClick(View view) {
                             Intent intent = new Intent(HomeActivity.this, MetricActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
                         }
                     });
@@ -92,7 +91,6 @@ public class HomeActivity extends ActionBarActivity {
                             intent.putExtra(ROW_TITLE_ID, R.array.case_depth_row_header_titles);
                             intent.putExtra(KEYS_ID, R.array.case_depth_keys);
                             intent.putExtra(CHART_TITLE_ID, R.string.title_activity_hardness_case_depth);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
                         }
                     });
@@ -102,7 +100,6 @@ public class HomeActivity extends ActionBarActivity {
                         @Override
                         public void onClick(View view) {
                             Intent intent = new Intent(HomeActivity.this, MTIStatementActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
                         }
                     });
@@ -115,7 +112,6 @@ public class HomeActivity extends ActionBarActivity {
                             intent.putExtra(ROW_TITLE_ID, R.array.row_header_titles);
                             intent.putExtra(KEYS_ID, R.array.keys);
                             intent.putExtra(CHART_TITLE_ID, R.string.title_activity_hardness_chart);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
                         }
                     });
@@ -125,7 +121,6 @@ public class HomeActivity extends ActionBarActivity {
                         @Override
                         public void onClick(View view) {
                             Intent intent = new Intent(HomeActivity.this, ContactActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
                         }
                     });

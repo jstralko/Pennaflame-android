@@ -76,13 +76,20 @@ public class PennaFlameBaseActivity extends ActionBarActivity{
                     }
 
                     if (intent != null) {
-                        Intent homeIntent = new Intent(PennaFlameBaseActivity.this, HomeActivity.class);
-                        homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                        TaskStackBuilder.create(PennaFlameBaseActivity.this)
-                                // Add all of this activity's parents to the back stack
-                                .addNextIntent(homeIntent)
-                                .addNextIntent(intent)
-                                .startActivities();
+                        if (position == 0) {
+                            TaskStackBuilder.create(PennaFlameBaseActivity.this)
+                                    // Add all of this activity's parents to the back stack
+                                    .addNextIntent(intent)
+                                    .startActivities();
+                        } else {
+                            Intent homeIntent = new Intent(PennaFlameBaseActivity.this, HomeActivity.class);
+                            homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            TaskStackBuilder.create(PennaFlameBaseActivity.this)
+                                    // Add all of this activity's parents to the back stack
+                                    .addNextIntent(homeIntent)
+                                    .addNextIntent(intent)
+                                    .startActivities();
+                        }
                     }
             }
         });
