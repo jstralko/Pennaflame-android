@@ -20,13 +20,6 @@ public class MetricActivity extends PennaFlameBaseActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.metric, menu);
-        return true;
-    }
-
     public static MetricFragment newInstance(int type) {
         MetricFragment metricFragment = new MetricFragment();
         Bundle args = new Bundle();

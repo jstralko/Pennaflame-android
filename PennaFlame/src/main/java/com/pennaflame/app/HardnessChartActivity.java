@@ -31,15 +31,6 @@ public class HardnessChartActivity extends ActionBarActivity {
         }
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.hardness_chart, menu);
-        return true;
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -63,8 +54,6 @@ public class HardnessChartActivity extends ActionBarActivity {
                 upIntent.putExtra(HomeActivity.KEYS_ID, mKeysId);
                 upIntent.putExtra(HomeActivity.CHART_TITLE_ID, mTitleId);
                 NavUtils.navigateUpTo(this, upIntent);
-                return true;
-            case R.id.action_settings:
                 return true;
         }
         return super.onOptionsItemSelected(item);
