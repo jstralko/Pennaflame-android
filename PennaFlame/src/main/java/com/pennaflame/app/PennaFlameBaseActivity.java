@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.TaskStackBuilder;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -58,6 +59,7 @@ public class PennaFlameBaseActivity extends ActionBarActivity{
                             intent = new Intent(PennaFlameBaseActivity.this, HardnessChartPickActivity.class);
                             intent.putExtra(HomeActivity.ROW_TITLE_ID, R.array.case_depth_row_header_titles);
                             intent.putExtra(HomeActivity.KEYS_ID, R.array.case_depth_keys);
+                            intent.putExtra(HomeActivity.CHART_TITLE_ID, R.string.title_activity_hardness_case_depth);
                             break;
                         case 4:
                             intent = new Intent(PennaFlameBaseActivity.this, MTIStatementActivity.class);
@@ -66,6 +68,7 @@ public class PennaFlameBaseActivity extends ActionBarActivity{
                             intent = new Intent(PennaFlameBaseActivity.this, HardnessChartPickActivity.class);
                             intent.putExtra(HomeActivity.ROW_TITLE_ID, R.array.row_header_titles);
                             intent.putExtra(HomeActivity.KEYS_ID, R.array.keys);
+                            intent.putExtra(HomeActivity.CHART_TITLE_ID, R.string.title_activity_hardness_chart);
                             break;
                         case 6:
                             intent = new Intent(PennaFlameBaseActivity.this, ContactActivity.class);
@@ -73,9 +76,13 @@ public class PennaFlameBaseActivity extends ActionBarActivity{
                     }
 
                     if (intent != null) {
-                        //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                        overridePendingTransition(0, 0);
+                        Intent homeIntent = new Intent(PennaFlameBaseActivity.this, HomeActivity.class);
+                        homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        TaskStackBuilder.create(PennaFlameBaseActivity.this)
+                                // Add all of this activity's parents to the back stack
+                                .addNextIntent(homeIntent)
+                                .addNextIntent(intent)
+                                .startActivities();
                     }
             }
         });
