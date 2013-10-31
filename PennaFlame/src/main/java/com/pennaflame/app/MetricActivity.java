@@ -142,24 +142,22 @@ public class MetricActivity extends PennaFlameBaseActivity {
             });
 
             leftSpinner = (Spinner)view.findViewById(R.id.leftSpinner);
-            leftSpinner.setSelection(4);
             // Create an ArrayAdapter using the string array and a default spinner layout
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
-                    R.array.units, android.R.layout.simple_spinner_item);
+                    R.array.units, R.layout.spinner_layout);
             // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            adapter.setDropDownViewResource(R.layout.spinner_layout);
             // Apply the adapter to the spinner
             leftSpinner.setAdapter(adapter);
+            leftSpinner.setSelection(4);
             leftSpinner.setOnItemSelectedListener(this);
 
             rightSpinner = (Spinner)view.findViewById(R.id.rightSpinner);
             rightSpinner.setAdapter(adapter);
-            rightSpinner.setSelection(0);
+            rightSpinner.setSelection(1);
             rightSpinner.setOnItemSelectedListener(this);
 
-            //float value = convertUnit("Inch", "Centimeter", 1.0f);
-            //Log.d("PennaFlame", String.format("value: %f", value));
-
+            //leftEditText.setText(String.format("%4.2f", 1.0f));
             return view;
         }
 
