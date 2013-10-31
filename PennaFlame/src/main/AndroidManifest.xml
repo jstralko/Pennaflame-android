@@ -15,10 +15,10 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name="com.pennaflame.app.HomeActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -56,6 +56,10 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="HardnessChartPickActivity" />
+        </activity>
+        <activity
+            android:name="com.pennaflame.app.FractionDecimalActivity"
+            android:label="@string/title_activity_fraction_decimal" >
         </activity>
     </application>
 

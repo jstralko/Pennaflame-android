@@ -71,7 +71,8 @@ public class HomeActivity extends ActionBarActivity {
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-
+                            Intent intent = new Intent(HomeActivity.this, FractionDecimalActivity.class);
+                            startActivity(intent);
                         }
                     });
                     break;

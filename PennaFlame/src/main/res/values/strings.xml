@@ -23,7 +23,6 @@
         <item>HARDNESS (Rc)</item>
         <item>Case Depth Inches</item>
     </array>
-
     <array name="units">
         <item>Millimeter</item>
         <item>Centimeter</item>
@@ -49,5 +48,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_contact">Contact</string>
     <string name="title_activity_website">PennaFlame</string>
+    <string name="title_activity_fraction_decimal">Fraction/Decmial</string>
 
 </resources>
