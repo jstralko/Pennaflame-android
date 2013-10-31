@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -30,7 +31,7 @@ public class MetricActivity extends PennaFlameBaseActivity {
         }
     }
 
-    public static class MetricFragment extends Fragment implements Spinner.OnItemSelectedListener {
+    public static class MetricFragment extends Fragment implements Spinner.OnItemSelectedListener, Button.OnClickListener {
 
         private boolean enabledTextWatcherEvents = true;
         private Map<String, Float> mEnglishMap;
@@ -40,6 +41,10 @@ public class MetricActivity extends PennaFlameBaseActivity {
         private EditText rightEditText;
         private Spinner leftSpinner;
         private Spinner rightSpinner;
+        private Button mAddLeftButton;
+        private Button mMinusLeftButton;
+        private Button mAddRightButton;
+        private Button mMinusRightButton;
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -157,8 +162,59 @@ public class MetricActivity extends PennaFlameBaseActivity {
             rightSpinner.setSelection(1);
             rightSpinner.setOnItemSelectedListener(this);
 
-            //leftEditText.setText(String.format("%4.2f", 1.0f));
+            mAddLeftButton = (Button)view.findViewById(R.id.addLeftButton);
+            mAddLeftButton.setOnClickListener(this);
+            mMinusLeftButton = (Button)view.findViewById(R.id.minusLeftButton);
+            mMinusLeftButton.setOnClickListener(this);
+            mAddRightButton = (Button)view.findViewById(R.id.addRightButton);
+            mAddRightButton.setOnClickListener(this);
+            mMinusRightButton = (Button)view.findViewById(R.id.minusRightButton);
+            mMinusRightButton.setOnClickListener(this);
+
             return view;
+        }
+
+        public void onClick(View v) {
+            float value = 0.0f;
+            if (v == mAddLeftButton) {
+                String strValue = leftEditText.getText().toString();
+                try {
+                    value = Float.parseFloat(strValue);
+                } catch (NumberFormatException nfe) {
+                    Log.w("PennaFlame", String.format("error parsing %s", strValue));
+                }
+                value++;
+                leftEditText.setText(String.format("%4.2f", value));
+            } else if (v == mMinusLeftButton) {
+                String strValue = leftEditText.getText().toString();
+                try {
+                    value = Float.parseFloat(strValue);
+                } catch (NumberFormatException nfe) {
+                    Log.w("PennaFlame", String.format("error parsing %s", strValue));
+                }
+                value--;
+                leftEditText.setText(String.format("%4.2f", value));
+            } else if (v == mAddRightButton) {
+                String strValue = rightEditText.getText().toString();
+                try {
+                    value = Float.parseFloat(strValue);
+                } catch (NumberFormatException nfe) {
+                    Log.w("PennaFlame", String.format("error parsing %s", strValue));
+                }
+                value++;
+                rightEditText.setText(String.format("%4.2f", value));
+            } else if (v == mMinusRightButton) {
+                String strValue = rightEditText.getText().toString();
+                try {
+                    value = Float.parseFloat(strValue);
+                } catch (NumberFormatException nfe) {
+                    Log.w("PennaFlame", String.format("error parsing %s", strValue));
+                }
+                value--;
+                rightEditText.setText(String.format("%4.2f", value));
+            } else {
+                Log.w("PennaFlame", String.format("ignoring event from %s", v.toString()));
+            }
         }
 
         public void onItemSelected(AdapterView<?> adapter, View view, int pos, long id) {

@@ -4,22 +4,34 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:id="@+id/addLeftButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/textView"
+        android:layout_marginTop="25dp" />
+
     <EditText
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/leftEditText"
-        android:layout_alignParentTop="true"
+        android:numeric="decimal"
+        android:textSize="32sp"
         android:layout_alignParentLeft="true"
         android:layout_toLeftOf="@+id/textView"
-        android:numeric="decimal"
-        android:layout_marginTop="25dp"
-        android:textSize="32sp" />
+        android:layout_below="@id/addLeftButton"
+        android:textAlignment="center"
+        android:gravity="center" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="="
-        android:textSize="32dp"
+        android:textSize="32sp"
         android:id="@+id/textView"
         android:layout_alignBottom="@+id/rightEditText"
         android:layout_centerHorizontal="true" />
@@ -30,28 +42,58 @@
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/rightEditText"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/textView"
         android:numeric="decimal"
-        android:layout_marginTop="25sp"
-        android:textSize="32sp" />
+        android:textSize="32sp"
+        android:layout_below="@+id/addLeftButton"
+        android:layout_toRightOf="@+id/textView"
+        android:textAlignment="center"
+        android:gravity="center" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/leftSpinner"
-        android:layout_below="@+id/leftEditText"
+        android:layout_below="@+id/minusLeftButton"
         android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/leftEditText" />
+        android:layout_alignRight="@+id/leftEditText"
+        android:textAlignment="center" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/rightSpinner"
-        android:layout_below="@+id/rightEditText"
-        android:layout_alignLeft="@+id/rightEditText"
-        android:layout_alignParentRight="true" />
+        android:layout_below="@+id/minusLeftButton"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_alignRight="@+id/minusRightButton" />
 
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:id="@+id/minusLeftButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/leftSpinner"
+        android:layout_below="@+id/leftEditText" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:id="@+id/addRightButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/rightEditText"
+        android:layout_alignRight="@+id/rightEditText"
+        android:layout_marginTop="25dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:id="@+id/minusRightButton"
+        android:layout_below="@+id/rightEditText"
+        android:layout_alignRight="@+id/rightEditText"
+        android:layout_toRightOf="@+id/textView" />
 
 </RelativeLayout>
