@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="englishMetricKeys">
+        <item>MetricToEnglish</item>
+        <item>EnglishToMetric</item>
+    </string-array>
+    <array name="englishMetric">
+        <item>2.54</item>   <!-- Metric to English conversion -->
+        <item>0.3937</item> <!-- English to Metric conversion -->
+    </array>
+
+    <string-array name="englishKey">
+        <item>Inch</item>
+        <item>Foot</item>
+        <item>Yard</item>
+        <item>Mile</item>
+        <item>Centimeter</item>
+        <item>Millimeter</item>
+        <item>Meter</item>
+        <item>Kilometer</item>
+    </string-array>
+
+    <string-array name="metricKey">
+        <item>Centimeter</item>
+        <item>Millimeter</item>
+        <item>Meter</item>
+        <item>Kilometer</item>
+        <item>Inch</item>
+        <item>Foot</item>
+        <item>Yard</item>
+        <item>Mile</item>
+    </string-array>
+
+    <array name="metricUnits">
+        <item>1</item>
+        <item>0.1</item>
+        <item>100</item>
+        <item>100000</item>
+        <item>1</item>
+        <item>12</item>
+        <item>36</item>
+        <item>63360</item>
+    </array>
+
+    <array name="englishUnits">
+        <item>1</item>
+        <item>12</item>
+        <item>36</item>
+        <item>63360</item>
+        <item>1</item>
+        <item>10</item>
+        <item>0.01</item>
+        <item>0.00001</item>
+    </array>
+</resources>
