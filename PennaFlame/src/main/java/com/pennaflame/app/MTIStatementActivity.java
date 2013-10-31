@@ -2,9 +2,8 @@ package com.pennaflame.app;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
@@ -20,6 +19,24 @@ public class MTIStatementActivity extends PennaFlameBaseActivity {
                     .add(R.id.container, new MTIStatementFragment())
                     .commit();
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        /*
+         * XXX: why do I have to add this here.
+         * Without this check hitting the back button
+         * when drawer is open it goes to the previous
+         * activity.
+         */
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            if (isDrawerOpen()) {
+                closeDrawer();
+                return true;
+            }
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
 
     /**

@@ -126,6 +126,14 @@ public class PennaFlameBaseActivity extends ActionBarActivity{
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
+    protected boolean isDrawerOpen() {
+        return mDrawerLayout.isDrawerOpen(mDrawerList);
+    }
+
+    protected void closeDrawer() {
+        mDrawerLayout.closeDrawers();
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (mDrawerToggle.onOptionsItemSelected(item)) {
