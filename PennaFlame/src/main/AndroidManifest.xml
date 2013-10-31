@@ -59,7 +59,7 @@
         </activity>
         <activity
             android:name="com.pennaflame.app.FractionDecimalActivity"
-            android:label="@string/title_activity_fraction_decimal" >
+            android:label="" >
         </activity>
     </application>
 

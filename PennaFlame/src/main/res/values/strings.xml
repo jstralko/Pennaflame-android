@@ -10,6 +10,11 @@
     <string name="title_activity_hardness_case_depth">Hardness Case Depth</string>
     <string name="spinner_prompt">Select</string>
 
+    <array name="fractionDecimal">
+        <item>Fraction to Decimal Converter</item>
+        <item>Decimal to Fraction Converter</item>
+    </array>
+
     <array name="row_header_titles">
         <item>EQUO TIP Ld</item>
         <item>ROCKWELL C HRC</item>
