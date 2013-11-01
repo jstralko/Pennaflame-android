@@ -53,7 +53,7 @@ public class PennaFlameBaseActivity extends ActionBarActivity{
                             intent = new Intent(PennaFlameBaseActivity.this, MetricActivity.class);
                             break;
                         case 2:
-                            //intent = new Intent(PennaFlameBaseActivity.this, )
+                            intent = new Intent(PennaFlameBaseActivity.this, FractionDecimalActivity.class);
                             break;
                         case 3:
                             intent = new Intent(PennaFlameBaseActivity.this, HardnessChartPickActivity.class);
