@@ -114,6 +114,11 @@ public class FractionDecimalActivity extends PennaFlameBaseActivity implements O
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     float decimal = getFloatValue(s.toString());
+                    if (decimal == 0.0f && mDecimalMinusButton.isEnabled()) {
+                        mDecimalMinusButton.setEnabled(false);
+                    } else if (decimal >= 0.0f && !mDecimalMinusButton.isEnabled()) {
+                        mDecimalMinusButton.setEnabled(true);
+                    }
                     int[] fraction = floatToFraction(decimal);
                     mNumeratorText.setText(String.format("%d", fraction[0]), TextView.BufferType.EDITABLE);
                     mDenominatorText.setText(String.format("%d", fraction[1]), TextView.BufferType.EDITABLE);
