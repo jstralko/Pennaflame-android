@@ -18,7 +18,8 @@
         android:gravity="center"
         android:textSize="32sp"
         android:enabled="true"
-        android:ems="5" />
+        android:ems="3"
+        tools:text="1" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -46,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="_________"
+        android:text="_____"
         android:id="@+id/textView"
         android:textAlignment="center"
         android:gravity="center"
@@ -60,14 +61,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:ems="5"
+        android:ems="3"
         android:id="@+id/bottomEditText"
         android:textSize="32sp"
         android:layout_alignBottom="@+id/bottomMinuButton"
         android:layout_toLeftOf="@+id/addBottomButton"
         android:enabled="true"
         android:layout_alignLeft="@+id/topEditText"
-        android:gravity="center" />
+        android:gravity="center"
+        tools:text="4" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -94,7 +96,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        tools:text="1.4"
+        tools:text="0.250"
         android:id="@+id/decimalTextView"
         android:layout_below="@+id/bottomEditText"
         android:layout_marginTop="45dp"
