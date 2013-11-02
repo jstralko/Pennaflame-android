@@ -1,14 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="5"
+        android:id="@+id/decimalEditText"
+        android:layout_marginTop="27dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textSize="32sp"
+        android:gravity="center"
+        tools:text=".25"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:id="@+id/decimalMinusButton"
+        android:layout_alignBottom="@+id/decimalEditText"
+        android:layout_toLeftOf="@+id/decimalEditText" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:id="@+id/decimalAddButton"
+        android:layout_alignTop="@+id/decimalMinusButton"
+        android:layout_toRightOf="@+id/decimalEditText" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Decimal"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/numeratorTextView"
+        android:layout_below="@+id/decimalMinusButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        tools:text="1"
+        android:textAlignment="center"
+        android:textSize="36sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="_____"
+        android:id="@+id/fractionBar"
+        android:textSize="32sp"
+        android:textIsSelectable="true"
+        android:textAlignment="center"
+        android:singleLine="true"
+        android:layout_below="@+id/numeratorTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/denominatorTextView"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/fractionBar"
+        android:layout_centerHorizontal="true"
+        tools:text="4"
+        android:textSize="36sp"
+        android:textIsSelectable="true" />
 </RelativeLayout>
