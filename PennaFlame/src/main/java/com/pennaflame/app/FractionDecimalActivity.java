@@ -38,6 +38,11 @@ public class FractionDecimalActivity extends PennaFlameBaseActivity implements O
             @Override
             public boolean onNavigationItemSelected(int i, long l) {
                 if (i == 0) {
+                    // to prevent fragment re-selection and loosing early saved state
+                    if (getSupportFragmentManager().findFragmentByTag("FractionFragment") != null) {
+                        return true;
+                    }
+
                     FractionFragment f;
                     if (mCurrentFractionValue != null) {
                         f = FractionFragment.newInstance(mCurrentFractionValue[0], mCurrentFractionValue[1]);
@@ -45,24 +50,21 @@ public class FractionDecimalActivity extends PennaFlameBaseActivity implements O
                         f = new FractionFragment();
                     }
                     getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.container, f)
+                            .replace(R.id.container, f, "FractionFragment")
                             .commit();
                 } else {
+                    // to prevent fragment re-selection and loosing early saved state
+                    if (getSupportFragmentManager().findFragmentByTag("DecimalFragment") != null) {
+                        return true;
+                    }
                     DecimalFragment f = DecimalFragment.newInstance(mCurrentDecimalValue);
                     getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.container, f)
+                            .replace(R.id.container, f, "DecimalFragment")
                             .commit();
                 }
-                return false;
+                return true;
             }
-        });
-
-        if (savedInstanceState == null) {
-
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new FractionFragment())
-                    .commit();
-        }
+       });
     }
 
     public void decimalValueChanged(float value) {
@@ -177,9 +179,21 @@ public class FractionDecimalActivity extends PennaFlameBaseActivity implements O
                     df.setRoundingMode(RoundingMode.UP);
                 }
                 mDecimalEditText.setText(df.format(decimal));
+            } else if (savedInstanceState != null && savedInstanceState.containsKey("decimal")) {
+                float decimal = savedInstanceState.getFloat("decimal");
+                DecimalFormat df = new DecimalFormat("@@##");
+                if (android.os.Build.VERSION.SDK_INT>= Build.VERSION_CODES.GINGERBREAD) {
+                    df.setRoundingMode(RoundingMode.UP);
+                }
+                mDecimalEditText.setText(df.format(decimal));
             }
 
             return rootView;
+        }
+
+        public void onSaveInstanceState (Bundle outState) {
+            super.onSaveInstanceState(outState);
+            outState.putString("decimal", mDecimalEditText.getText().toString());
         }
 
         @Override
@@ -190,6 +204,16 @@ public class FractionDecimalActivity extends PennaFlameBaseActivity implements O
             } catch (ClassCastException cce) {
                 throw new ClassCastException(activity.toString() + " must implement OnFractionDecimalListener");
             }
+        }
+
+        /**
+         * Set the callback to null so we don't accidentally leak the
+         * Activity instance.
+         */
+        @Override
+        public void onDetach() {
+            super.onDetach();
+            mListener = null;
         }
 
         public static float getFloatValue(String str) {
@@ -270,6 +294,17 @@ public class FractionDecimalActivity extends PennaFlameBaseActivity implements O
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
+            if (container == null) {
+                // We have different layouts, and in one of them this
+                // fragment's containing frame doesn't exist.  The fragment
+                // may still be created from its saved state, but there is
+                // no reason to try to create its view hierarchy because it
+                // won't be displayed.  Note this is not needed -- we could
+                // just run the code below, where we would create and return
+                // the view hierarchy; it would just never be used.
+                return null;
+            }
+
             View rootView = inflater.inflate(R.layout.fragment_fd_fraction, container, false);
             numeratorText = (EditText)rootView.findViewById(R.id.topEditText);
             denominatorText = (EditText)rootView.findViewById(R.id.bottomEditText);
@@ -394,14 +429,25 @@ public class FractionDecimalActivity extends PennaFlameBaseActivity implements O
                 }
             });
 
+            //Save state and rotation change stuff
             Bundle bundle = getArguments();
             if (bundle != null && bundle.containsKey("numerator")) {
                 int numerator = bundle.getInt("numerator");
                 numeratorText.setText(String.format("%d", numerator), TextView.BufferType.EDITABLE);
                 int denominator = bundle.getInt("denominator");
                 denominatorText.setText(String.format("%d", denominator), TextView.BufferType.EDITABLE);
+            } else if (savedInstanceState != null && savedInstanceState.containsKey("numerator")) {
+                numeratorText.setText(savedInstanceState.getString("numerator"), TextView.BufferType.EDITABLE);
+                denominatorText.setText(savedInstanceState.getString("denominator"), TextView.BufferType.EDITABLE);
             }
+
             return rootView;
+        }
+
+        public void onSaveInstanceState (Bundle outState) {
+            super.onSaveInstanceState(outState);
+            outState.putString("numerator", numeratorText.getText().toString());
+            outState.putString("denominator", denominatorText.getText().toString());
         }
 
         @Override
@@ -412,6 +458,16 @@ public class FractionDecimalActivity extends PennaFlameBaseActivity implements O
             } catch (ClassCastException cce) {
                 throw new ClassCastException(activity.toString() + " must implement OnFractionDecimalListener");
             }
+        }
+
+        /**
+         * Set the callback to null so we don't accidentally leak the
+         * Activity instance.
+         */
+        @Override
+        public void onDetach() {
+            super.onDetach();
+            mListener = null;
         }
 
         private void updateDecimal(int numvalue, int demvalue, TextView decimalText) {
