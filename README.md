@@ -14,3 +14,7 @@ Penna Flame Android app
 ![alt_tag](https://raw.github.com/jstralko/Pennaflame-android/master/Screenshots/Screenshot_2013-10-25-13-40-50.png)
 
 ![alt_tag](https://raw.github.com/jstralko/Pennaflame-android/master/Screenshots/Screenshot_2013-10-31-12-05-23.png)
+
+![alt_tag](https://raw.github.com/jstralko/Pennaflame-android/master/Screenshots/Screenshot_2013-11-02-14-54-02.png)
+
+![alt_tag](https://raw.github.com/jstralko/Pennaflame-android/master/Screenshots/Screenshot_2013-11-02-14-54-08.png)
