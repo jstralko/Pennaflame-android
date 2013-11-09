@@ -77,7 +77,7 @@ public class ContactActivity extends PennaFlameBaseActivity {
             });
 
             contactInfoTextView = (TextView)rootView.findViewById(R.id.contactInfoTextView);
-            contactInfoTextView.setText("Penna Flame Industrics\n1856 State Route 588\nZelienople, PA 16063-3902");
+            contactInfoTextView.setText("Penna Flame Industries\n1856 State Route 588\nZelienople, PA 16063-3902");
 
             return rootView;
         }
