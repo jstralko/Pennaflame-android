@@ -57,7 +57,7 @@ public class FractionDecimalActivity extends PennaFlameBaseActivity implements O
                     if (getSupportFragmentManager().findFragmentByTag("DecimalFragment") != null) {
                         return true;
                     }
-                    DecimalFragment f = DecimalFragment.newInstance(mCurrentDecimalValue);
+                    DecimalFragment f = DecimalFragment.newInstance(mCurrentFractionValue[0], mCurrentFractionValue[1]);
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.container, f, "DecimalFragment")
                             .commit();
@@ -67,15 +67,13 @@ public class FractionDecimalActivity extends PennaFlameBaseActivity implements O
        });
     }
 
-    public void decimalValueChanged(float value) {
-        mCurrentDecimalValue = value;
-    }
-    public void fractionValueChanged(int numerator, int denominator) {
+    public void fractionValueChanged(int numerator, int denominator, float decimal) {
         if (mCurrentFractionValue == null) {
             mCurrentFractionValue = new int[2];
         }
         mCurrentFractionValue[0] = numerator;
         mCurrentFractionValue[1] = denominator;
+        mCurrentDecimalValue = decimal;
     }
 
     public static class DecimalFragment extends Fragment {
@@ -86,14 +84,16 @@ public class FractionDecimalActivity extends PennaFlameBaseActivity implements O
         private Button mDecimalMinusButton;
         private TextView mNumeratorText;
         private TextView mDenominatorText;
+        private boolean mEnableDecimalEditEvent = true;
 
         public DecimalFragment() {
 
         }
 
-        public static DecimalFragment newInstance(float decimal) {
+        public static DecimalFragment newInstance(int numerator, int denominator) {
             Bundle args = new Bundle();
-            args.putFloat("decimal", decimal);
+            args.putInt("numerator", numerator);
+            args.putInt("denominator", denominator);
             DecimalFragment f = new DecimalFragment();
             f.setArguments(args);
             return f;
@@ -115,6 +115,10 @@ public class FractionDecimalActivity extends PennaFlameBaseActivity implements O
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    if (!mEnableDecimalEditEvent) {
+                        return;
+                    }
+
                     float decimal = getFloatValue(s.toString());
                     if (decimal == 0.0f && mDecimalMinusButton.isEnabled()) {
                         mDecimalMinusButton.setEnabled(false);
@@ -124,7 +128,7 @@ public class FractionDecimalActivity extends PennaFlameBaseActivity implements O
                     int[] fraction = floatToFraction(decimal);
                     mNumeratorText.setText(String.format("%d", fraction[0]), TextView.BufferType.EDITABLE);
                     mDenominatorText.setText(String.format("%d", fraction[1]), TextView.BufferType.EDITABLE);
-                    mListener.fractionValueChanged(fraction[0], fraction[1]);
+                    mListener.fractionValueChanged(fraction[0], fraction[1], decimal);
                 }
 
                 @Override
@@ -171,21 +175,27 @@ public class FractionDecimalActivity extends PennaFlameBaseActivity implements O
                 }
             });
 
+            Bundle bundleToUse = null;
             Bundle bundle = getArguments();
-            if (bundle != null && bundle.containsKey("decimal")) {
-                float decimal = bundle.getFloat("decimal");
+            if (bundle != null && bundle.containsKey("numerator")) {
+                bundleToUse = bundle;
+            } else if (savedInstanceState != null && savedInstanceState.containsKey("numerator")) {
+                bundleToUse = savedInstanceState;
+            }
+
+            if (bundleToUse != null) {
+                int numerator = bundleToUse.getInt("numerator");
+                int denominator = bundleToUse.getInt("denominator");
+                mNumeratorText.setText(String.format("%d", numerator));
+                mDenominatorText.setText(String.format("%d", denominator));
+
                 DecimalFormat df = new DecimalFormat("@@##");
                 if (android.os.Build.VERSION.SDK_INT>= Build.VERSION_CODES.GINGERBREAD) {
-                    df.setRoundingMode(RoundingMode.UP);
+                    df.setRoundingMode(RoundingMode.HALF_UP);
                 }
-                mDecimalEditText.setText(df.format(decimal));
-            } else if (savedInstanceState != null && savedInstanceState.containsKey("decimal")) {
-                float decimal = savedInstanceState.getFloat("decimal");
-                DecimalFormat df = new DecimalFormat("@@##");
-                if (android.os.Build.VERSION.SDK_INT>= Build.VERSION_CODES.GINGERBREAD) {
-                    df.setRoundingMode(RoundingMode.UP);
-                }
-                mDecimalEditText.setText(df.format(decimal));
+                mEnableDecimalEditEvent = false;
+                mDecimalEditText.setText(df.format(FractionFragment.fractionToDecimal(numerator, denominator)));
+                mEnableDecimalEditEvent = true;
             }
 
             return rootView;
@@ -193,7 +203,8 @@ public class FractionDecimalActivity extends PennaFlameBaseActivity implements O
 
         public void onSaveInstanceState (Bundle outState) {
             super.onSaveInstanceState(outState);
-            outState.putString("decimal", mDecimalEditText.getText().toString());
+            outState.putString("denominator", mDenominatorText.getText().toString());
+            outState.putString("numerator", mNumeratorText.getText().toString());
         }
 
         @Override
@@ -474,15 +485,15 @@ public class FractionDecimalActivity extends PennaFlameBaseActivity implements O
 
             if (demvalue == 0) {
                 decimalText.setText("0.0");
-                mListener.decimalValueChanged(0.0f);
+                mListener.fractionValueChanged(0, 0, 0.0f);
                 return;
             }
 
             float decimal = FractionFragment.fractionToDecimal(numvalue, demvalue);
-            mListener.decimalValueChanged(decimal);
+            mListener.fractionValueChanged(numvalue, demvalue, decimal);
             DecimalFormat df = new DecimalFormat("@@##");
             if (android.os.Build.VERSION.SDK_INT>= Build.VERSION_CODES.GINGERBREAD) {
-                df.setRoundingMode(RoundingMode.UP);
+                df.setRoundingMode(RoundingMode.HALF_UP);
             }
             decimalText.setText(df.format(decimal));
         }
@@ -503,6 +514,9 @@ public class FractionDecimalActivity extends PennaFlameBaseActivity implements O
 
         public static float fractionToDecimal(int numInt, int demInt) {
             if (demInt != 0) {
+                Log.d("PennaFlame",
+                        String.format("%d / %d = %4.2f",
+                                numInt, demInt, (numInt/(demInt*1.0f))));
                 return numInt/(demInt*1.0f);
             }
             return 0.0f;

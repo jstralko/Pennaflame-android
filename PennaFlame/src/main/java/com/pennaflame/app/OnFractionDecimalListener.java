@@ -6,6 +6,5 @@ package com.pennaflame.app;
  * in FractionDecimalActivity class
  */
 public interface OnFractionDecimalListener {
-    void decimalValueChanged(float value);
-    void fractionValueChanged(int numerator, int denominator);
+    void fractionValueChanged(int numerator, int denominator, float decimal);
 }
