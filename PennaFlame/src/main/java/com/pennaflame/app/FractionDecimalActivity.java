@@ -57,7 +57,12 @@ public class FractionDecimalActivity extends PennaFlameBaseActivity implements O
                     if (getSupportFragmentManager().findFragmentByTag("DecimalFragment") != null) {
                         return true;
                     }
-                    DecimalFragment f = DecimalFragment.newInstance(mCurrentFractionValue[0], mCurrentFractionValue[1]);
+		    DecimalFragment f;
+		    if (mCurrentFractionValue != null) {
+                    	f = DecimalFragment.newInstance(mCurrentFractionValue[0], mCurrentFractionValue[1]);
+		    } else {
+			f = new DecimalFragment();
+		    }
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.container, f, "DecimalFragment")
                             .commit();
