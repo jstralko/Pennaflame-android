@@ -22,3 +22,5 @@ local.properties
 
 #vim files
 *~
+
+.gradle

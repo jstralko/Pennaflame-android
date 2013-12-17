@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PennaFlame/PennaFlame.iml" filepath="$PROJECT_DIR$/PennaFlame/PennaFlame.iml" />
       <module fileurl="file://$PROJECT_DIR$/PennaFlameProject.iml" filepath="$PROJECT_DIR$/PennaFlameProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Pennaflame-android.iml" filepath="$PROJECT_DIR$/Pennaflame-android.iml" />
     </modules>
   </component>
 </project>
