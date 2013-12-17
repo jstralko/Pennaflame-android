@@ -35,16 +35,16 @@ public class HardnessChartFragment extends Fragment {
                              Bundle savedInstanceState) {
         mHtml = getArguments().getString("html");
         View rootView = inflater.inflate(R.layout.fragment_main_webview, container, false);
-        mChart = (WebView)rootView.findViewById(R.id.wvChart);
+        mChart = (WebView) rootView.findViewById(R.id.wvChart);
         mChart.getSettings().setBuiltInZoomControls(true);
-        if (android.os.Build.VERSION.SDK_INT>=android.os.Build.VERSION_CODES.HONEYCOMB) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB) {
             mChart.getSettings().setDisplayZoomControls(false);
         }
         return rootView;
     }
 
     @Override
-    public void onActivityCreated (Bundle savedInstanceState) {
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mChart.loadData(mHtml, "text/html", "UTF-8");
     }

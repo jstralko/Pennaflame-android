@@ -48,18 +48,18 @@ public class HardnessPickChartFragment extends Fragment implements Spinner.OnIte
                              Bundle savedInstanceState) {
 
         //TODO: add error handling more gracefully!
-        mDictionary = (HardnessDictionary)getArguments().getSerializable("dictionary");
+        mDictionary = (HardnessDictionary) getArguments().getSerializable("dictionary");
         View rootView = inflater.inflate(R.layout.fragment_picker_chart_main, container, false);
-        mChart = (WebView)rootView.findViewById(R.id.chartWebView);
-        topSpinner = (Spinner)rootView.findViewById(R.id.topSpinner);
+        mChart = (WebView) rootView.findViewById(R.id.chartWebView);
+        topSpinner = (Spinner) rootView.findViewById(R.id.topSpinner);
         topSpinnerAdapter = new PFSpinnerAdapter(topSpinner);
         topSpinner.setAdapter(topSpinnerAdapter);
         topSpinner.setOnItemSelectedListener(this);
-        rangeSpinner = (Spinner)rootView.findViewById(R.id.rangeSpinner);
+        rangeSpinner = (Spinner) rootView.findViewById(R.id.rangeSpinner);
         rangeSpinnerAdapter = new PFSpinnerAdapter(rangeSpinner);
         rangeSpinner.setAdapter(rangeSpinnerAdapter);
         rangeSpinner.setOnItemSelectedListener(this);
-        showButton = (Button)rootView.findViewById(R.id.showButton);
+        showButton = (Button) rootView.findViewById(R.id.showButton);
         showButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,7 +85,7 @@ public class HardnessPickChartFragment extends Fragment implements Spinner.OnIte
 
                 Bundle bundle = getActivity().getIntent().getExtras();
                 int titlesId = bundle.getInt(HomeActivity.ROW_TITLE_ID);
-                int keysId =  bundle.getInt(HomeActivity.KEYS_ID);
+                int keysId = bundle.getInt(HomeActivity.KEYS_ID);
                 int titleId = bundle.getInt(HomeActivity.CHART_TITLE_ID);
 
                 Intent intent = new Intent(getActivity(), HardnessChartActivity.class);
@@ -150,7 +150,7 @@ public class HardnessPickChartFragment extends Fragment implements Spinner.OnIte
 
             int keyIndex = topSpinner.getSelectedItemPosition();
             Set<String> keys = mDictionary.keySet();
-            String[] keysArray = keys.toArray(new String[] {});
+            String[] keysArray = keys.toArray(new String[]{});
             String key = keysArray[keyIndex];
             return mDictionary.get(key).size();
         }
@@ -163,13 +163,13 @@ public class HardnessPickChartFragment extends Fragment implements Spinner.OnIte
 
             if (owner == topSpinner) {
                 Set<String> keys = mDictionary.keySet();
-                String[] keysArray = keys.toArray(new String[] {});
+                String[] keysArray = keys.toArray(new String[]{});
                 return keysArray[position];
             }
 
             int keyIndex = topSpinner.getSelectedItemPosition();
             Set<String> keys = mDictionary.keySet();
-            String[] keysArray = keys.toArray(new String[] {});
+            String[] keysArray = keys.toArray(new String[]{});
             String key = keysArray[keyIndex];
             return mDictionary.get(key).get(position);
         }
@@ -177,17 +177,17 @@ public class HardnessPickChartFragment extends Fragment implements Spinner.OnIte
         public View getView(int position, View convertView, ViewGroup parent) {
             final LayoutInflater inflater = getActivity().getLayoutInflater();
             final View spinnerView = inflater.inflate(R.layout.spinner_layout, null);
-            TextView tv = (TextView)spinnerView.findViewById(R.id.textViewForSpinner);
+            TextView tv = (TextView) spinnerView.findViewById(R.id.textViewForSpinner);
 
             CharSequence text;
             if (owner == topSpinner) {
                 Set<String> keys = mDictionary.keySet();
-                String[] keysArray = keys.toArray(new String[] {});
+                String[] keysArray = keys.toArray(new String[]{});
                 text = keysArray[position];
             } else {
                 int keyIndex = topSpinner.getSelectedItemPosition();
                 Set<String> keys = mDictionary.keySet();
-                String[] keysArray = keys.toArray(new String[] {});
+                String[] keysArray = keys.toArray(new String[]{});
                 String key = keysArray[keyIndex];
                 text = mDictionary.get(key).get(position);
             }

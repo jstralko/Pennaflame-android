@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by stralko on 10/23/13.
  */
-public class HardnessDictionary extends HashMap <String, ArrayList<CharSequence>> implements Serializable {
+public class HardnessDictionary extends HashMap<String, ArrayList<CharSequence>> implements Serializable {
 
     private String mRowHeaderTitles[];
 
@@ -25,12 +25,12 @@ public class HardnessDictionary extends HashMap <String, ArrayList<CharSequence>
         mRowHeaderTitles = res.getStringArray(titleResourceId);
         TypedArray myArray = res.obtainTypedArray(keyResourceId);
         int columns = myArray.length();
-        for(int i = 0; i < columns; i++) {
+        for (int i = 0; i < columns; i++) {
             int rowid = myArray.peekValue(i).resourceId;
             TypedArray row = res.obtainTypedArray(rowid);
 
             int values = row.length();
-            for(int k = 0; k < values; k++) {
+            for (int k = 0; k < values; k++) {
                 if (!containsKey(mRowHeaderTitles[i])) {
                     put(mRowHeaderTitles[i], new ArrayList<CharSequence>());
                 }

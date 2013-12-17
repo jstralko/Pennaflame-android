@@ -24,13 +24,14 @@ public class HomeActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         mSections = getResources().getStringArray(R.array.app_sections);
         setContentView(R.layout.activity_main);
-        GridView gridView = (GridView)findViewById(R.id.home_layout);
+        GridView gridView = (GridView) findViewById(R.id.home_layout);
         gridView.setAdapter(new HomeAdapter(this));
     }
 
 
     private class HomeAdapter extends BaseAdapter {
         private Context mContext;
+
         public HomeAdapter(Context c) {
             mContext = c;
         }
@@ -49,15 +50,15 @@ public class HomeActivity extends ActionBarActivity {
 
         public View getView(int position, View convertView, ViewGroup parent) {
             View v;
-            if (convertView == null){
+            if (convertView == null) {
                 v = getLayoutInflater().from(mContext).inflate(R.layout.home_row, null);
             } else {
                 v = convertView;
             }
 
-            Button button = (Button)v.findViewById(R.id.homeButton);
-            button.setText(mSections[position+1]);
-            switch(position) {
+            Button button = (Button) v.findViewById(R.id.homeButton);
+            button.setText(mSections[position + 1]);
+            switch (position) {
                 case 0:
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override

@@ -78,7 +78,7 @@ public class MetricActivity extends PennaFlameBaseActivity {
                 i++;
             }
 
-            leftEditText = (EditText)view.findViewById(R.id.leftEditText);
+            leftEditText = (EditText) view.findViewById(R.id.leftEditText);
             leftEditText.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -112,7 +112,7 @@ public class MetricActivity extends PennaFlameBaseActivity {
                 }
             });
 
-            rightEditText = (EditText)view.findViewById(R.id.rightEditText);
+            rightEditText = (EditText) view.findViewById(R.id.rightEditText);
             rightEditText.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -146,7 +146,7 @@ public class MetricActivity extends PennaFlameBaseActivity {
                 }
             });
 
-            leftSpinner = (Spinner)view.findViewById(R.id.leftSpinner);
+            leftSpinner = (Spinner) view.findViewById(R.id.leftSpinner);
             // Create an ArrayAdapter using the string array and a default spinner layout
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
                     R.array.units, R.layout.spinner_layout);
@@ -157,18 +157,18 @@ public class MetricActivity extends PennaFlameBaseActivity {
             leftSpinner.setSelection(4);
             leftSpinner.setOnItemSelectedListener(this);
 
-            rightSpinner = (Spinner)view.findViewById(R.id.rightSpinner);
+            rightSpinner = (Spinner) view.findViewById(R.id.rightSpinner);
             rightSpinner.setAdapter(adapter);
             rightSpinner.setSelection(1);
             rightSpinner.setOnItemSelectedListener(this);
 
-            mAddLeftButton = (Button)view.findViewById(R.id.addLeftButton);
+            mAddLeftButton = (Button) view.findViewById(R.id.addLeftButton);
             mAddLeftButton.setOnClickListener(this);
-            mMinusLeftButton = (Button)view.findViewById(R.id.minusLeftButton);
+            mMinusLeftButton = (Button) view.findViewById(R.id.minusLeftButton);
             mMinusLeftButton.setOnClickListener(this);
-            mAddRightButton = (Button)view.findViewById(R.id.addRightButton);
+            mAddRightButton = (Button) view.findViewById(R.id.addRightButton);
             mAddRightButton.setOnClickListener(this);
-            mMinusRightButton = (Button)view.findViewById(R.id.minusRightButton);
+            mMinusRightButton = (Button) view.findViewById(R.id.minusRightButton);
             mMinusRightButton.setOnClickListener(this);
 
             return view;
@@ -290,9 +290,9 @@ public class MetricActivity extends PennaFlameBaseActivity {
 
         private boolean isEnglishUnitClass(String unit) {
             if (unit.equalsIgnoreCase("Inch") ||
-                unit.equalsIgnoreCase("Foot") ||
-                unit.equalsIgnoreCase("Yard") ||
-                unit.equalsIgnoreCase("Mile")) {
+                    unit.equalsIgnoreCase("Foot") ||
+                    unit.equalsIgnoreCase("Yard") ||
+                    unit.equalsIgnoreCase("Mile")) {
                 return true;
             }
             return false;

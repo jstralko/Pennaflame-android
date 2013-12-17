@@ -32,14 +32,14 @@ public class WebsiteActivity extends ActionBarActivity {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+                                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_website, container, false);
-            WebView wv = (WebView)rootView.findViewById(R.id.webView);
+            WebView wv = (WebView) rootView.findViewById(R.id.webView);
             wv.loadUrl("http://www.pennaflame.com");
-	    wv.getSettings().setBuiltInZoomControls(true);
-	    if (android.os.Build.VERSION.SDK_INT>=android.os.Build.VERSION_CODES.HONEYCOMB) {
-            	wv.getSettings().setDisplayZoomControls(false);
-	    }
+            wv.getSettings().setBuiltInZoomControls(true);
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB) {
+                wv.getSettings().setDisplayZoomControls(false);
+            }
 
             return rootView;
         }

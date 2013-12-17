@@ -13,6 +13,7 @@ public class HardnessChartActivity extends ActionBarActivity {
     private int mTitlesId;
     private int mKeysId;
     private int mTitleId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +23,7 @@ public class HardnessChartActivity extends ActionBarActivity {
             Intent intent = getIntent();
             String html = intent.getExtras().getString("html");
             mTitlesId = intent.getExtras().getInt(HomeActivity.ROW_TITLE_ID);
-            mKeysId =  intent.getExtras().getInt(HomeActivity.KEYS_ID);
+            mKeysId = intent.getExtras().getInt(HomeActivity.KEYS_ID);
             mTitleId = intent.getExtras().getInt(HomeActivity.CHART_TITLE_ID);
             Fragment f = HardnessChartFragment.newInstance(html);
             getSupportFragmentManager().beginTransaction()

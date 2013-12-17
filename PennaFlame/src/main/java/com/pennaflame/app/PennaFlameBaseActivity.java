@@ -21,7 +21,7 @@ import android.widget.TextView;
 /**
  * Created by stralko on 10/23/13.
  */
-public class PennaFlameBaseActivity extends ActionBarActivity{
+public class PennaFlameBaseActivity extends ActionBarActivity {
 
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -44,53 +44,53 @@ public class PennaFlameBaseActivity extends ActionBarActivity{
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Intent intent = null;
-                    switch (position) {
-                        case 0:
-                            intent  = new Intent(PennaFlameBaseActivity.this, HomeActivity.class);
-                         break;
-                        case 1:
-                            intent = new Intent(PennaFlameBaseActivity.this, MetricActivity.class);
-                            break;
-                        case 2:
-                            intent = new Intent(PennaFlameBaseActivity.this, FractionDecimalActivity.class);
-                            break;
-                        case 3:
-                            intent = new Intent(PennaFlameBaseActivity.this, HardnessChartPickActivity.class);
-                            intent.putExtra(HomeActivity.ROW_TITLE_ID, R.array.case_depth_row_header_titles);
-                            intent.putExtra(HomeActivity.KEYS_ID, R.array.case_depth_keys);
-                            intent.putExtra(HomeActivity.CHART_TITLE_ID, R.string.title_activity_hardness_case_depth);
-                            break;
-                        case 4:
-                            intent = new Intent(PennaFlameBaseActivity.this, MTIStatementActivity.class);
-                            break;
-                        case 5:
-                            intent = new Intent(PennaFlameBaseActivity.this, HardnessChartPickActivity.class);
-                            intent.putExtra(HomeActivity.ROW_TITLE_ID, R.array.row_header_titles);
-                            intent.putExtra(HomeActivity.KEYS_ID, R.array.keys);
-                            intent.putExtra(HomeActivity.CHART_TITLE_ID, R.string.title_activity_hardness_chart);
-                            break;
-                        case 6:
-                            intent = new Intent(PennaFlameBaseActivity.this, ContactActivity.class);
-                            break;
-                    }
+                Intent intent = null;
+                switch (position) {
+                    case 0:
+                        intent = new Intent(PennaFlameBaseActivity.this, HomeActivity.class);
+                        break;
+                    case 1:
+                        intent = new Intent(PennaFlameBaseActivity.this, MetricActivity.class);
+                        break;
+                    case 2:
+                        intent = new Intent(PennaFlameBaseActivity.this, FractionDecimalActivity.class);
+                        break;
+                    case 3:
+                        intent = new Intent(PennaFlameBaseActivity.this, HardnessChartPickActivity.class);
+                        intent.putExtra(HomeActivity.ROW_TITLE_ID, R.array.case_depth_row_header_titles);
+                        intent.putExtra(HomeActivity.KEYS_ID, R.array.case_depth_keys);
+                        intent.putExtra(HomeActivity.CHART_TITLE_ID, R.string.title_activity_hardness_case_depth);
+                        break;
+                    case 4:
+                        intent = new Intent(PennaFlameBaseActivity.this, MTIStatementActivity.class);
+                        break;
+                    case 5:
+                        intent = new Intent(PennaFlameBaseActivity.this, HardnessChartPickActivity.class);
+                        intent.putExtra(HomeActivity.ROW_TITLE_ID, R.array.row_header_titles);
+                        intent.putExtra(HomeActivity.KEYS_ID, R.array.keys);
+                        intent.putExtra(HomeActivity.CHART_TITLE_ID, R.string.title_activity_hardness_chart);
+                        break;
+                    case 6:
+                        intent = new Intent(PennaFlameBaseActivity.this, ContactActivity.class);
+                        break;
+                }
 
-                    if (intent != null) {
-                        if (position == 0) {
-                            TaskStackBuilder.create(PennaFlameBaseActivity.this)
-                                    // Add all of this activity's parents to the back stack
-                                    .addNextIntent(intent)
-                                    .startActivities();
-                        } else {
-                            Intent homeIntent = new Intent(PennaFlameBaseActivity.this, HomeActivity.class);
-                            homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                            TaskStackBuilder.create(PennaFlameBaseActivity.this)
-                                    // Add all of this activity's parents to the back stack
-                                    .addNextIntent(homeIntent)
-                                    .addNextIntent(intent)
-                                    .startActivities();
-                        }
+                if (intent != null) {
+                    if (position == 0) {
+                        TaskStackBuilder.create(PennaFlameBaseActivity.this)
+                                // Add all of this activity's parents to the back stack
+                                .addNextIntent(intent)
+                                .startActivities();
+                    } else {
+                        Intent homeIntent = new Intent(PennaFlameBaseActivity.this, HomeActivity.class);
+                        homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        TaskStackBuilder.create(PennaFlameBaseActivity.this)
+                                // Add all of this activity's parents to the back stack
+                                .addNextIntent(homeIntent)
+                                .addNextIntent(intent)
+                                .startActivities();
                     }
+                }
             }
         });
 

@@ -23,4 +23,5 @@ local.properties
 #vim files
 *~
 
-.gradle
+.gradle/
+.idea/workspace.xml

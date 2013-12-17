@@ -41,9 +41,9 @@ public class ContactActivity extends PennaFlameBaseActivity {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+                                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_contact, container, false);
-            callButton = (Button)rootView.findViewById(R.id.callButton);
+            callButton = (Button) rootView.findViewById(R.id.callButton);
             callButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -54,7 +54,7 @@ public class ContactActivity extends PennaFlameBaseActivity {
                 }
             });
 
-            emailButton = (Button)rootView.findViewById(R.id.emailButton);
+            emailButton = (Button) rootView.findViewById(R.id.emailButton);
             emailButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -67,7 +67,7 @@ public class ContactActivity extends PennaFlameBaseActivity {
                 }
             });
 
-            websiteButton = (Button)rootView.findViewById(R.id.websiteButton);
+            websiteButton = (Button) rootView.findViewById(R.id.websiteButton);
             websiteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -76,7 +76,7 @@ public class ContactActivity extends PennaFlameBaseActivity {
                 }
             });
 
-            contactInfoTextView = (TextView)rootView.findViewById(R.id.contactInfoTextView);
+            contactInfoTextView = (TextView) rootView.findViewById(R.id.contactInfoTextView);
             contactInfoTextView.setText("Penna Flame Industries\n1856 State Route 588\nZelienople, PA 16063-3902");
 
             return rootView;
