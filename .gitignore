@@ -22,6 +22,8 @@ local.properties
 
 #vim files
 *~
-
+.idea/gradle.xml
 .gradle/
 .idea/workspace.xml
+
+.DS_Store

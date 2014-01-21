@@ -3,7 +3,7 @@
 
     <string name="app_name">PennaFlame</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_metric">Length Converter</string>
+    <string name="title_activity_metric">English / Metric Converter</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
     <string name="title_activity_hardness_chart">Hardness Chart</string>
@@ -44,8 +44,8 @@
         <item>@string/title_activity_metric</item>
         <item>Fraction / Decimal Converter</item>
         <item>Hardness Case Depth</item>
-        <item>MTI Statement</item>
         <item>@string/title_activity_hardness_chart</item>
+        <item>MTI Statement</item>
         <item>Contact</item>
     </string-array>
 

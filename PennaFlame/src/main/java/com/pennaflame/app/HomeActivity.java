@@ -2,14 +2,21 @@ package com.pennaflame.app;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class HomeActivity extends ActionBarActivity {
 
@@ -56,10 +63,12 @@ public class HomeActivity extends ActionBarActivity {
                 v = convertView;
             }
 
-            Button button = (Button) v.findViewById(R.id.homeButton);
-            button.setText(mSections[position + 1]);
+            ImageView button = (ImageView) v.findViewById(R.id.homeRowButton);
+            TextView textView = (TextView)v.findViewById(R.id.homeRowTextView);
+            textView.setText(mSections[position + 1]);
             switch (position) {
                 case 0:
+                    button.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.english_metric_converter));
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -69,6 +78,7 @@ public class HomeActivity extends ActionBarActivity {
                     });
                     break;
                 case 1:
+                    button.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.fraction_decimal_converter));
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -78,6 +88,7 @@ public class HomeActivity extends ActionBarActivity {
                     });
                     break;
                 case 2:
+                    button.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.case_depth));
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -90,15 +101,7 @@ public class HomeActivity extends ActionBarActivity {
                     });
                     break;
                 case 3:
-                    button.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent intent = new Intent(HomeActivity.this, MTIStatementActivity.class);
-                            startActivity(intent);
-                        }
-                    });
-                    break;
-                case 4:
+                    button.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.hardness_chart));
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -109,8 +112,20 @@ public class HomeActivity extends ActionBarActivity {
                             startActivity(intent);
                         }
                     });
+
+                    break;
+                case 4:
+                    button.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.mti_statement));
+                    button.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(HomeActivity.this, MTIStatementActivity.class);
+                            startActivity(intent);
+                        }
+                    });
                     break;
                 case 5:
+                    button.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.contact));
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -120,7 +135,7 @@ public class HomeActivity extends ActionBarActivity {
                     });
                     break;
                 default:
-                    button.setText("UNKOWN");
+                    Log.w("PennaFlame", "switch statement hit the fallback through default case");
             }
             return v;
         }

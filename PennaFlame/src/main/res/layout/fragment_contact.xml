@@ -12,7 +12,6 @@
         <ImageView
             android:layout_height="50dp"
             android:layout_width="wrap_content"
-            android:src="@drawable/layer12nomerge"
             />
 
         <TextView

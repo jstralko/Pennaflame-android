@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="fill_parent"
-             android:minHeight="140dp">
-    <Button
-        android:id="@+id/homeButton"
+             android:orientation="vertical"
+             android:minHeight="140dp"
+             android:background="@drawable/main_buttons">
+    <ImageView
+        android:layout_marginTop="@dimen/homerow_imageview_margin_top"
+        android:id="@+id/homeRowButton"
+        android:layout_gravity="center_horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_gravity="center_horizontal|top"/>
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/homeRowTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/homerow_text_size"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        tools:text="Test"
+        />
 </LinearLayout>
