@@ -93,7 +93,7 @@ public class HomeActivity extends ActionBarActivity {
                     layoutButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Intent intent = new Intent(HomeActivity.this, HardnessChartPickActivity.class);
+                            Intent intent = new Intent(HomeActivity.this, HardnessChartActivity.class);
                             intent.putExtra(ROW_TITLE_ID, R.array.case_depth_row_header_titles);
                             intent.putExtra(KEYS_ID, R.array.case_depth_keys);
                             intent.putExtra(CHART_TITLE_ID, R.string.title_activity_hardness_case_depth);

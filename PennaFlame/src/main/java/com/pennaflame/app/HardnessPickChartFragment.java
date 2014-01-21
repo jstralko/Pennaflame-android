@@ -46,8 +46,6 @@ public class HardnessPickChartFragment extends Fragment implements Spinner.OnIte
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        //TODO: add error handling more gracefully!
         mDictionary = (HardnessDictionary) getArguments().getSerializable("dictionary");
         View rootView = inflater.inflate(R.layout.fragment_picker_chart_main, container, false);
         mChart = (WebView) rootView.findViewById(R.id.chartWebView);
@@ -63,33 +61,12 @@ public class HardnessPickChartFragment extends Fragment implements Spinner.OnIte
         showButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                StringBuilder html = new StringBuilder();
-                html.append("<html><head></head><body style=\"background-color:#BDBBBB;\">" +
-                        "<table width=\"90%%\" border=\"1\" align=\"center\" cellpadding=\"3\" cellspacing=\"0\" bordercolor=\"#CCCCC\">\n" +
-                        "<tbody>" +
-                        "<tr bgcolor=\"lightgrey\" align=\"center\">");
-                for (String key : mDictionary.keySet()) {
-                    html.append(String.format("<td bgcolor=\"#FF0000\"><span style=\"font-weight:bold\">%s</span></td>", key));
-                }
-                html.append("</tr>");
-
-                int total = mDictionary.get(mDictionary.keySet().iterator().next()).size();
-                for (int i = 0; i < total; i++) {
-                    html.append("<tr bgcolor=\"white\">");
-                    for (String key : mDictionary.keySet()) {
-                        html.append(String.format("<td><div align=\"center\">%s</div></td>", mDictionary.get(key).get(i)));
-                    }
-                }
-                html.append("</tr>");
-                html.append("</table></body></html");
-
                 Bundle bundle = getActivity().getIntent().getExtras();
                 int titlesId = bundle.getInt(HomeActivity.ROW_TITLE_ID);
                 int keysId = bundle.getInt(HomeActivity.KEYS_ID);
                 int titleId = bundle.getInt(HomeActivity.CHART_TITLE_ID);
 
                 Intent intent = new Intent(getActivity(), HardnessChartActivity.class);
-                intent.putExtra("html", html.toString());
                 intent.putExtra(HomeActivity.ROW_TITLE_ID, titlesId);
                 intent.putExtra(HomeActivity.KEYS_ID, keysId);
                 intent.putExtra(HomeActivity.CHART_TITLE_ID, titleId);

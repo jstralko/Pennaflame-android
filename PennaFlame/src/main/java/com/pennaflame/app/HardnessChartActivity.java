@@ -13,6 +13,7 @@ public class HardnessChartActivity extends ActionBarActivity {
     private int mTitlesId;
     private int mKeysId;
     private int mTitleId;
+    private HardnessDictionary mDictionary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +22,11 @@ public class HardnessChartActivity extends ActionBarActivity {
         setContentView(R.layout.activity_chart);
         if (savedInstanceState == null) {
             Intent intent = getIntent();
-            String html = intent.getExtras().getString("html");
+            int titlesId = intent.getExtras().getInt(HomeActivity.ROW_TITLE_ID);
+            int keysId = intent.getExtras().getInt(HomeActivity.KEYS_ID);
+            mDictionary = new HardnessDictionary(this, titlesId, keysId);
+            String html = generateChartHTML();
+
             mTitlesId = intent.getExtras().getInt(HomeActivity.ROW_TITLE_ID);
             mKeysId = intent.getExtras().getInt(HomeActivity.KEYS_ID);
             mTitleId = intent.getExtras().getInt(HomeActivity.CHART_TITLE_ID);
@@ -30,6 +35,29 @@ public class HardnessChartActivity extends ActionBarActivity {
                     .add(R.id.container, f)
                     .commit();
         }
+    }
+
+    private String generateChartHTML() {
+        StringBuilder html = new StringBuilder();
+        html.append("<html><head></head><body style=\"background-color:#BDBBBB;\">" +
+                "<table width=\"90%%\" border=\"1\" align=\"center\" cellpadding=\"3\" cellspacing=\"0\" bordercolor=\"#CCCCC\">\n" +
+                "<tbody>" +
+                "<tr bgcolor=\"lightgrey\" align=\"center\">");
+        for (String key : mDictionary.keySet()) {
+            html.append(String.format("<td bgcolor=\"#FF0000\"><span style=\"font-weight:bold\">%s</span></td>", key));
+        }
+        html.append("</tr>");
+
+        int total = mDictionary.get(mDictionary.keySet().iterator().next()).size();
+        for (int i = 0; i < total; i++) {
+            html.append("<tr bgcolor=\"white\">");
+            for (String key : mDictionary.keySet()) {
+                html.append(String.format("<td><div align=\"center\">%s</div></td>", mDictionary.get(key).get(i)));
+            }
+        }
+        html.append("</tr>");
+        html.append("</table></body></html");
+        return html.toString();
     }
 
     @Override
