@@ -63,13 +63,14 @@ public class HomeActivity extends ActionBarActivity {
                 v = convertView;
             }
 
+            View layoutButton = v.findViewById(R.id.homeRowLayout);
             ImageView button = (ImageView) v.findViewById(R.id.homeRowButton);
             TextView textView = (TextView)v.findViewById(R.id.homeRowTextView);
             textView.setText(mSections[position + 1]);
             switch (position) {
                 case 0:
                     button.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.english_metric_converter));
-                    button.setOnClickListener(new View.OnClickListener() {
+                    layoutButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             Intent intent = new Intent(HomeActivity.this, MetricActivity.class);
@@ -79,7 +80,7 @@ public class HomeActivity extends ActionBarActivity {
                     break;
                 case 1:
                     button.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.fraction_decimal_converter));
-                    button.setOnClickListener(new View.OnClickListener() {
+                    layoutButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             Intent intent = new Intent(HomeActivity.this, FractionDecimalActivity.class);
@@ -89,7 +90,7 @@ public class HomeActivity extends ActionBarActivity {
                     break;
                 case 2:
                     button.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.case_depth));
-                    button.setOnClickListener(new View.OnClickListener() {
+                    layoutButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             Intent intent = new Intent(HomeActivity.this, HardnessChartPickActivity.class);
@@ -102,7 +103,7 @@ public class HomeActivity extends ActionBarActivity {
                     break;
                 case 3:
                     button.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.hardness_chart));
-                    button.setOnClickListener(new View.OnClickListener() {
+                    layoutButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             Intent intent = new Intent(HomeActivity.this, HardnessChartPickActivity.class);
@@ -116,7 +117,7 @@ public class HomeActivity extends ActionBarActivity {
                     break;
                 case 4:
                     button.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.mti_statement));
-                    button.setOnClickListener(new View.OnClickListener() {
+                    layoutButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             Intent intent = new Intent(HomeActivity.this, MTIStatementActivity.class);
@@ -126,7 +127,7 @@ public class HomeActivity extends ActionBarActivity {
                     break;
                 case 5:
                     button.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.contact));
-                    button.setOnClickListener(new View.OnClickListener() {
+                    layoutButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             Intent intent = new Intent(HomeActivity.this, ContactActivity.class);
@@ -135,7 +136,7 @@ public class HomeActivity extends ActionBarActivity {
                     });
                     break;
                 default:
-                    Log.w("PennaFlame", "switch statement hit the fallback through default case");
+                    Log.w("PennaFlame", "switch statement hit the fall through default case. Fix your code!");
             }
             return v;
         }

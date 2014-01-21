@@ -2,14 +2,15 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
+             android:id="@+id/homeRowLayout"
              android:layout_width="match_parent"
-             android:layout_height="fill_parent"
+             android:layout_height="wrap_content"
              android:orientation="vertical"
-             android:background="@drawable/main_buttons">
+             android:background="@drawable/home_button_effects">
 
         <ImageView
-            android:layout_marginTop="@dimen/homerow_imageview_margin_top"
             android:id="@+id/homeRowButton"
+            android:layout_marginTop="@dimen/homerow_imageview_margin_top"
             android:layout_gravity="center_horizontal"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"/>
