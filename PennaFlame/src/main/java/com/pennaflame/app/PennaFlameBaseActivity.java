@@ -3,6 +3,9 @@ package com.pennaflame.app;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.TaskStackBuilder;
@@ -15,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -62,13 +66,14 @@ public class PennaFlameBaseActivity extends ActionBarActivity {
                         intent.putExtra(HomeActivity.CHART_TITLE_ID, R.string.title_activity_hardness_case_depth);
                         break;
                     case 4:
-                        intent = new Intent(PennaFlameBaseActivity.this, MTIStatementActivity.class);
-                        break;
-                    case 5:
                         intent = new Intent(PennaFlameBaseActivity.this, HardnessChartPickActivity.class);
                         intent.putExtra(HomeActivity.ROW_TITLE_ID, R.array.row_header_titles);
                         intent.putExtra(HomeActivity.KEYS_ID, R.array.keys);
                         intent.putExtra(HomeActivity.CHART_TITLE_ID, R.string.title_activity_hardness_chart);
+                        break;
+                    case 5:
+
+                        intent = new Intent(PennaFlameBaseActivity.this, MTIStatementActivity.class);
                         break;
                     case 6:
                         intent = new Intent(PennaFlameBaseActivity.this, ContactActivity.class);
@@ -158,8 +163,49 @@ public class PennaFlameBaseActivity extends ActionBarActivity {
                 row = convertView;
             }
 
+            ImageView imageView = (ImageView)row.findViewById(R.id.iv_list_item);
+
             TextView tv = (TextView) row.findViewById(R.id.list_item_text);
             tv.setText(mSections[position]);
+
+            Bitmap image = null;
+            switch (position) {
+                case 0:
+                    image = BitmapFactory.decodeResource(PennaFlameBaseActivity.this.getResources(), R.drawable.pfi_app_icon);
+                    break;
+                case 1:
+                    image = BitmapFactory.decodeResource(PennaFlameBaseActivity.this.getResources(), R.drawable.ic_drawer_image_english_metric_converter);
+                    break;
+                case 2:
+                    image = BitmapFactory.decodeResource(PennaFlameBaseActivity.this.getResources(), R.drawable.fraction_decimal_converter);
+                    break;
+                case 3:
+                    image = BitmapFactory.decodeResource(PennaFlameBaseActivity.this.getResources(), R.drawable.case_depth);
+                    break;
+                case 4:
+                    image = BitmapFactory.decodeResource(PennaFlameBaseActivity.this.getResources(), R.drawable.hardness_chart);
+                    break;
+                case 5:
+                    image = BitmapFactory.decodeResource(PennaFlameBaseActivity.this.getResources(), R.drawable.mti_statement);
+                    break;
+                case 6:
+                    image = BitmapFactory.decodeResource(PennaFlameBaseActivity.this.getResources(), R.drawable.ic_drawer_image_contact);
+                    break;
+                default:
+            }
+
+            if (image != null) {
+//                imageView.setImageBitmap(image);
+//                float size = PennaFlameBaseActivity.this.getResources().getDimension(R.dimen.drawer_layout_ic_size);
+//                // CREATE A MATRIX FOR THE MANIPULATION
+//                Matrix matrix = new Matrix();
+//                // RESIZE THE BIT MAP
+//                matrix.postScale(size, size);
+//                // "RECREATE" THE NEW BITMAP
+//                Bitmap resizedBitmap = Bitmap.createBitmap(image, 0, 0, image.getWidth(), image.getHeight(), matrix, false);
+//                imageView.setImageBitmap(resizedBitmap);
+
+            }
             return row;
         }
 

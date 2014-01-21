@@ -7,4 +7,5 @@
     <dimen name="redbanner_height">15dp</dimen>
     <dimen name="homerow_text_size">18sp</dimen>
     <dimen name="homerow_imageview_margin_top">18dp</dimen>
+    <dimen name="drawer_layout_ic_size">32dp</dimen>
 </resources>
