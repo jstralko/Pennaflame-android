@@ -17,4 +17,10 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style name="PFButtonStyle">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:background">@drawable/button_selector</item>
+    </style>
+
 </resources>

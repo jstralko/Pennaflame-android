@@ -1,104 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="wrap_content" android:layout_height="wrap_content">-->
 
-<RelativeLayout
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/background"
+        >
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+"
-        android:id="@+id/addLeftButton"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/textView"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="10dp" />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/redbanner_height"
+            android:background="@color/redbanner_color" />
 
-    <EditText
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:id="@+id/leftEditText"
-        android:numeric="decimal"
-        android:textSize="32sp"
-        android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/textView"
-        android:layout_below="@id/addLeftButton"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:layout_marginLeft="10dp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            style="@style/PFButtonStyle"
+            android:id="@+id/addLeftButton"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/textView"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="10dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="="
-        android:textSize="32sp"
-        android:id="@+id/textView"
-        android:layout_alignBottom="@+id/rightEditText"
-        android:layout_centerHorizontal="true" />
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/leftEditText"
+            android:numeric="decimal"
+            android:textSize="32sp"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/textView"
+            android:layout_below="@id/addLeftButton"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_marginLeft="10dp" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/rightEditText"
-        android:numeric="decimal"
-        android:textSize="32sp"
-        android:layout_below="@+id/addLeftButton"
-        android:layout_toRightOf="@+id/textView"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:layout_marginRight="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="="
+            android:textSize="32sp"
+            android:id="@+id/textView"
+            android:layout_alignBottom="@+id/rightEditText"
+            android:layout_centerHorizontal="true" />
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/leftSpinner"
-        android:layout_below="@+id/minusLeftButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/leftEditText"
-        android:textAlignment="center"
-        android:layout_marginLeft="10dp" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/rightEditText"
+            android:numeric="decimal"
+            android:textSize="32sp"
+            android:layout_below="@+id/addLeftButton"
+            android:layout_toRightOf="@+id/textView"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_marginRight="10dp" />
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/rightSpinner"
-        android:layout_below="@+id/minusLeftButton"
-        android:layout_toRightOf="@+id/textView"
-        android:layout_alignRight="@+id/minusRightButton" />
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/leftSpinner"
+            android:layout_below="@+id/minusLeftButton"
+            android:layout_alignParentLeft="true"
+            android:layout_alignRight="@+id/leftEditText"
+            android:textAlignment="center"
+            android:layout_marginLeft="10dp" />
 
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rightSpinner"
+            android:layout_below="@+id/minusLeftButton"
+            android:layout_toRightOf="@+id/textView"
+            android:layout_alignRight="@+id/minusRightButton" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            style="@style/PFButtonStyle"
+            android:id="@+id/minusLeftButton"
+            android:layout_alignParentLeft="true"
+            android:layout_alignRight="@+id/leftSpinner"
+            android:layout_below="@+id/leftEditText"
+            android:layout_marginLeft="10dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="-"
-        android:id="@+id/minusLeftButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/leftSpinner"
-        android:layout_below="@+id/leftEditText"
-        android:layout_marginLeft="10dp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:id="@+id/addRightButton"
+            style="@style/PFButtonStyle"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/rightEditText"
+            android:layout_marginTop="25dp"
+            android:layout_alignRight="@+id/rightEditText" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+"
-        android:id="@+id/addRightButton"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/rightEditText"
-        android:layout_marginTop="25dp"
-        android:layout_alignRight="@+id/rightEditText" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            style="@style/PFButtonStyle"
+            android:id="@+id/minusRightButton"
+            android:layout_below="@+id/rightEditText"
+            android:layout_toRightOf="@+id/textView"
+            android:layout_alignRight="@+id/rightEditText" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="-"
-        android:id="@+id/minusRightButton"
-        android:layout_below="@+id/rightEditText"
-        android:layout_toRightOf="@+id/textView"
-        android:layout_alignRight="@+id/rightEditText" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:layout_below="@id/rightSpinner"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/pf_logo" />
 
-</RelativeLayout>
+    </RelativeLayout>
+<!--</ScrollView>-->
