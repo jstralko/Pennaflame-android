@@ -11,6 +11,14 @@
     android:layout_height="match_parent"
     tools:context=".FractionDecimalActivity$DecimalFragment">
 
+    <!--<View-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="@dimen/redbanner_height"-->
+        <!--android:background="@color/redbanner_color"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentTop="true" />-->
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
