@@ -61,7 +61,7 @@ public class ContactActivity extends PennaFlameBaseActivity {
                     Intent intent = new Intent(Intent.ACTION_SEND);
                     intent.setType("text/html");
                     intent.putExtra(Intent.EXTRA_EMAIL, "brucec@pennaflame.com");
-                    intent.putExtra(Intent.EXTRA_SUBJECT, "<Set Subject Here>");
+                    intent.putExtra(Intent.EXTRA_SUBJECT, "");
 
                     startActivity(Intent.createChooser(intent, "Send Email"));
                 }

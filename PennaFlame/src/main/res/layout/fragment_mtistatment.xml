@@ -1,12 +1,18 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MTIStatementActivity$PlaceholderFragment">
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/redbanner_height"
+        android:background="@color/redbanner_color" />
 
     <WebView
         android:id="@+id/mtiWebView"
         android:layout_height="match_parent"
         android:layout_width="match_parent" />
 
-</RelativeLayout>
+</LinearLayout>

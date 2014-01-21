@@ -8,6 +8,11 @@
         android:layout_width="fill_parent"
         android:layout_height="match_parent">
 
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/redbanner_height"
+            android:background="@color/redbanner_color" />
+
         <Spinner
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

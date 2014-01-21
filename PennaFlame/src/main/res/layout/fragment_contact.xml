@@ -10,6 +10,11 @@
         android:background="@drawable/background"
         tools:context=".ContactActivity$PlaceholderFragment">
 
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/redbanner_height"
+            android:background="@color/redbanner_color" />
+
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
