@@ -23,4 +23,8 @@
         <item name="android:background">@drawable/button_effects</item>
     </style>
 
+    <style name="PFButtonStyleSmall" parent="PFButtonStyle">
+        <item name="android:textSize">18sp</item>
+    </style>
+
 </resources>
