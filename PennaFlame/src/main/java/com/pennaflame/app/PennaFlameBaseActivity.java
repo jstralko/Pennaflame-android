@@ -34,6 +34,14 @@ public class PennaFlameBaseActivity extends ActionBarActivity {
 
     private String[] mSections;
 
+    public static final int HOME_INDEX          = 0;
+    public static final int METRIC_INDEX        = 1;
+    public static final int FRACTION_INDEX      = 2;
+    public static final int CASE_DEPTH_INDEX    = 3;
+    public static final int HARDNESS_INDEX      = 4;
+    public static final int MTI_INDEX           = 5;
+    public static final int CONTACT_INDEX       = 6;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,32 +58,31 @@ public class PennaFlameBaseActivity extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = null;
                 switch (position) {
-                    case 0:
+                    case HOME_INDEX:
                         intent = new Intent(PennaFlameBaseActivity.this, HomeActivity.class);
                         break;
-                    case 1:
+                    case METRIC_INDEX:
                         intent = new Intent(PennaFlameBaseActivity.this, MetricActivity.class);
                         break;
-                    case 2:
+                    case FRACTION_INDEX:
                         intent = new Intent(PennaFlameBaseActivity.this, FractionDecimalActivity.class);
                         break;
-                    case 3:
+                    case CASE_DEPTH_INDEX:
                         intent = new Intent(PennaFlameBaseActivity.this, HardnessChartPickActivity.class);
                         intent.putExtra(HomeActivity.ROW_TITLE_ID, R.array.case_depth_row_header_titles);
                         intent.putExtra(HomeActivity.KEYS_ID, R.array.case_depth_keys);
                         intent.putExtra(HomeActivity.CHART_TITLE_ID, R.string.title_activity_hardness_case_depth);
                         break;
-                    case 4:
+                    case HARDNESS_INDEX:
                         intent = new Intent(PennaFlameBaseActivity.this, HardnessChartPickActivity.class);
                         intent.putExtra(HomeActivity.ROW_TITLE_ID, R.array.row_header_titles);
                         intent.putExtra(HomeActivity.KEYS_ID, R.array.keys);
                         intent.putExtra(HomeActivity.CHART_TITLE_ID, R.string.title_activity_hardness_chart);
                         break;
-                    case 5:
-
+                    case MTI_INDEX:
                         intent = new Intent(PennaFlameBaseActivity.this, MTIStatementActivity.class);
                         break;
-                    case 6:
+                    case CONTACT_INDEX:
                         intent = new Intent(PennaFlameBaseActivity.this, ContactActivity.class);
                         break;
                 }
@@ -170,25 +177,25 @@ public class PennaFlameBaseActivity extends ActionBarActivity {
 
             Bitmap image = null;
             switch (position) {
-                case 0:
+                case HOME_INDEX:
                     image = BitmapFactory.decodeResource(PennaFlameBaseActivity.this.getResources(), R.drawable.pfi_app_icon);
                     break;
-                case 1:
+                case METRIC_INDEX:
                     image = BitmapFactory.decodeResource(PennaFlameBaseActivity.this.getResources(), R.drawable.english_metric_converter);
                     break;
-                case 2:
+                case FRACTION_INDEX:
                     image = BitmapFactory.decodeResource(PennaFlameBaseActivity.this.getResources(), R.drawable.fraction_decimal_converter);
                     break;
-                case 3:
+                case CASE_DEPTH_INDEX:
                     image = BitmapFactory.decodeResource(PennaFlameBaseActivity.this.getResources(), R.drawable.case_depth);
                     break;
-                case 4:
+                case HARDNESS_INDEX:
                     image = BitmapFactory.decodeResource(PennaFlameBaseActivity.this.getResources(), R.drawable.hardness_chart);
                     break;
-                case 5:
+                case MTI_INDEX:
                     image = BitmapFactory.decodeResource(PennaFlameBaseActivity.this.getResources(), R.drawable.mti_statement);
                     break;
-                case 6:
+                case CONTACT_INDEX:
                     image = BitmapFactory.decodeResource(PennaFlameBaseActivity.this.getResources(), R.drawable.contact);
                     break;
                 default:
