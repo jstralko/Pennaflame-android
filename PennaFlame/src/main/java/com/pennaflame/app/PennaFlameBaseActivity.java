@@ -174,7 +174,7 @@ public class PennaFlameBaseActivity extends ActionBarActivity {
                     image = BitmapFactory.decodeResource(PennaFlameBaseActivity.this.getResources(), R.drawable.pfi_app_icon);
                     break;
                 case 1:
-                    image = BitmapFactory.decodeResource(PennaFlameBaseActivity.this.getResources(), R.drawable.ic_drawer_image_english_metric_converter);
+                    image = BitmapFactory.decodeResource(PennaFlameBaseActivity.this.getResources(), R.drawable.english_metric_converter);
                     break;
                 case 2:
                     image = BitmapFactory.decodeResource(PennaFlameBaseActivity.this.getResources(), R.drawable.fraction_decimal_converter);
@@ -189,22 +189,13 @@ public class PennaFlameBaseActivity extends ActionBarActivity {
                     image = BitmapFactory.decodeResource(PennaFlameBaseActivity.this.getResources(), R.drawable.mti_statement);
                     break;
                 case 6:
-                    image = BitmapFactory.decodeResource(PennaFlameBaseActivity.this.getResources(), R.drawable.ic_drawer_image_contact);
+                    image = BitmapFactory.decodeResource(PennaFlameBaseActivity.this.getResources(), R.drawable.contact);
                     break;
                 default:
             }
 
             if (image != null) {
-//                imageView.setImageBitmap(image);
-//                float size = PennaFlameBaseActivity.this.getResources().getDimension(R.dimen.drawer_layout_ic_size);
-//                // CREATE A MATRIX FOR THE MANIPULATION
-//                Matrix matrix = new Matrix();
-//                // RESIZE THE BIT MAP
-//                matrix.postScale(size, size);
-//                // "RECREATE" THE NEW BITMAP
-//                Bitmap resizedBitmap = Bitmap.createBitmap(image, 0, 0, image.getWidth(), image.getHeight(), matrix, false);
-//                imageView.setImageBitmap(resizedBitmap);
-
+                imageView.setImageBitmap(image);
             }
             return row;
         }
