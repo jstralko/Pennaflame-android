@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!--  Gradient Bg for Buttons -->
+    <gradient
+        android:startColor="#9E0303"
+        android:centerColor="#4B0B0B"
+        android:endColor="#303030"
+        android:angle="180" />
+</shape>
+
+    <!--android:startColor="#303030"-->

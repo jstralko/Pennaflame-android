@@ -13,7 +13,7 @@
         android:layout_width="240dp"
         android:layout_gravity="start"
         android:layout_height="match_parent"
-        android:background="#303030"
+        android:background="@drawable/drawer_layout_background_gradient"
         android:choiceMode="singleChoice"
         android:divider="#4f4f4f"
         android:dividerHeight="1dp"
