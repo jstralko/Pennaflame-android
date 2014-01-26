@@ -18,9 +18,9 @@
     </style>
 
     <style name="PFButtonStyle">
-        <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">36sp</item>
         <item name="android:background">@drawable/button_effects</item>
+        <item name="android:textColor">@drawable/button_text_color</item>
     </style>
 
     <style name="PFButtonStyleSmall" parent="PFButtonStyle">
