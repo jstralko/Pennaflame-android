@@ -378,8 +378,10 @@ public class FractionDecimalActivity extends PennaFlameBaseActivity implements O
 
             numeratorAddButton = (Button) rootView.findViewById(R.id.topAddButton);
             numeratorMinusButton = (Button) rootView.findViewById(R.id.topMinusButton);
+            numeratorMinusButton.setEnabled(false);
             denominatorAddButton = (Button) rootView.findViewById(R.id.addBottomButton);
             denominatorMinusButton = (Button) rootView.findViewById(R.id.bottomMinuButton);
+            denominatorMinusButton.setEnabled(false);
 
             numeratorAddButton.setOnClickListener(new View.OnClickListener() {
                 @Override

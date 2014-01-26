@@ -99,7 +99,18 @@ public class MetricActivity extends PennaFlameBaseActivity {
                     } catch (NumberFormatException nfe) {
                         Log.w("PennaFlame", String.format("Failed to parse %s into Float", leftEditText.getText().toString()));
                     }
+                    if (fvalue <= 0.0f) {
+                        mMinusLeftButton.setEnabled(false);
+                    } else if (fvalue > 0.0f && !mMinusLeftButton.isEnabled()) {
+                        mMinusLeftButton.setEnabled(true);
+                    }
+
                     float value = MetricFragment.this.convertUnit(convertee, converter, fvalue);
+                    if (value <= 0.0f) {
+                        mMinusRightButton.setEnabled(false);
+                    } else if (fvalue > 0.0f && !mMinusRightButton.isEnabled()) {
+                        mMinusRightButton.setEnabled(true);
+                    }
 
                     enabledTextWatcherEvents = false;
                     rightEditText.setText(String.format("%4.2f", value));
@@ -133,7 +144,18 @@ public class MetricActivity extends PennaFlameBaseActivity {
                     } catch (NumberFormatException nfe) {
                         Log.w("PennaFlame", String.format("Failed to parse %s into Float", rightEditText.getText().toString()));
                     }
+                    if (fvalue <= 0.0f) {
+                        mMinusRightButton.setEnabled(false);
+                    } else if (fvalue > 0.0f && !mMinusRightButton.isEnabled()) {
+                        mMinusRightButton.setEnabled(true);
+                    }
+
                     float value = MetricFragment.this.convertUnit(convertee, converter, fvalue);
+                    if (value <= 0.0f) {
+                        mMinusLeftButton.setEnabled(false);
+                    } else if (value > 0.0f && !mMinusLeftButton.isEnabled()) {
+                        mMinusLeftButton.setEnabled(true);
+                    }
 
                     enabledTextWatcherEvents = false;
                     leftEditText.setText(String.format("%4.2f", value));
@@ -166,10 +188,12 @@ public class MetricActivity extends PennaFlameBaseActivity {
             mAddLeftButton.setOnClickListener(this);
             mMinusLeftButton = (Button) view.findViewById(R.id.minusLeftButton);
             mMinusLeftButton.setOnClickListener(this);
+            mMinusLeftButton.setEnabled(false);
             mAddRightButton = (Button) view.findViewById(R.id.addRightButton);
             mAddRightButton.setOnClickListener(this);
             mMinusRightButton = (Button) view.findViewById(R.id.minusRightButton);
             mMinusRightButton.setOnClickListener(this);
+            mMinusRightButton.setEnabled(false);
 
             return view;
         }
@@ -183,7 +207,7 @@ public class MetricActivity extends PennaFlameBaseActivity {
                 } catch (NumberFormatException nfe) {
                     Log.w("PennaFlame", String.format("error parsing %s", strValue));
                 }
-                value++;
+                value = incrementValue(value, mAddLeftButton);
                 leftEditText.setText(String.format("%4.2f", value));
             } else if (v == mMinusLeftButton) {
                 String strValue = leftEditText.getText().toString();
@@ -192,7 +216,7 @@ public class MetricActivity extends PennaFlameBaseActivity {
                 } catch (NumberFormatException nfe) {
                     Log.w("PennaFlame", String.format("error parsing %s", strValue));
                 }
-                value--;
+                value = decrementValue(value, mMinusLeftButton);
                 leftEditText.setText(String.format("%4.2f", value));
             } else if (v == mAddRightButton) {
                 String strValue = rightEditText.getText().toString();
@@ -201,7 +225,7 @@ public class MetricActivity extends PennaFlameBaseActivity {
                 } catch (NumberFormatException nfe) {
                     Log.w("PennaFlame", String.format("error parsing %s", strValue));
                 }
-                value++;
+                value = incrementValue(value, mAddRightButton);
                 rightEditText.setText(String.format("%4.2f", value));
             } else if (v == mMinusRightButton) {
                 String strValue = rightEditText.getText().toString();
@@ -210,11 +234,29 @@ public class MetricActivity extends PennaFlameBaseActivity {
                 } catch (NumberFormatException nfe) {
                     Log.w("PennaFlame", String.format("error parsing %s", strValue));
                 }
-                value--;
+                value = decrementValue(value, mMinusRightButton);
                 rightEditText.setText(String.format("%4.2f", value));
             } else {
                 Log.w("PennaFlame", String.format("ignoring event from %s", v.toString()));
             }
+        }
+
+        private static float decrementValue(float value, Button button) {
+            value--;
+            if (value < 0.0f) {
+                value = 0.0f;
+                button.setEnabled(false);
+            }
+            return value;
+        }
+
+        private static float incrementValue(float value, Button button) {
+            value++;
+            //no max
+            if (value > 0.0f && !button.isEnabled()) {
+                button.setEnabled(true);
+            }
+            return value;
         }
 
         public void onItemSelected(AdapterView<?> adapter, View view, int pos, long id) {
