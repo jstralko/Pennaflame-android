@@ -125,9 +125,9 @@ public class FractionDecimalActivity extends PennaFlameBaseActivity implements O
                     }
 
                     float decimal = getFloatValue(s.toString());
-                    if (decimal == 0.0f && mDecimalMinusButton.isEnabled()) {
+                    if (decimal <= 0.0f && mDecimalMinusButton.isEnabled()) {
                         mDecimalMinusButton.setEnabled(false);
-                    } else if (decimal >= 0.0f && !mDecimalMinusButton.isEnabled()) {
+                    } else if (decimal > 0.0f && !mDecimalMinusButton.isEnabled()) {
                         mDecimalMinusButton.setEnabled(true);
                     }
                     int[] fraction = floatToFraction(decimal);
@@ -160,12 +160,18 @@ public class FractionDecimalActivity extends PennaFlameBaseActivity implements O
             });
 
             mDecimalMinusButton = (Button) rootView.findViewById(R.id.decimalMinusButton);
+            float decimal = getFloatValue(mDecimalEditText.getText().toString());
+            if (decimal > 0.0f && !mDecimalMinusButton.isEnabled()) {
+                mDecimalMinusButton.setEnabled(true);
+            } else if (decimal <= 0.0f) {
+                mDecimalMinusButton.setEnabled(false);
+            }
             mDecimalMinusButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     float decimal = getFloatValue(mDecimalEditText.getText().toString());
                     decimal -= 0.01;
-                    if (decimal < 0.00f) {
+                    if (decimal <= 0.00f) {
                         decimal = 0.00f;
                         mDecimalMinusButton.setEnabled(false);
                     } else if (!mDecimalMinusButton.isEnabled()) {
