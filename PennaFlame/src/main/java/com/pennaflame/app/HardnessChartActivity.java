@@ -5,10 +5,11 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class HardnessChartActivity extends ActionBarActivity {
+public class HardnessChartActivity extends ActionBarActivity implements HardnessChartFragment.HardnessChartDataSourceInterface {
 
     private int mTitlesId;
     private int mKeysId;
@@ -22,42 +23,32 @@ public class HardnessChartActivity extends ActionBarActivity {
         setContentView(R.layout.activity_chart);
         if (savedInstanceState == null) {
             Intent intent = getIntent();
-            int titlesId = intent.getExtras().getInt(HomeActivity.ROW_TITLE_ID);
-            int keysId = intent.getExtras().getInt(HomeActivity.KEYS_ID);
-            mDictionary = new HardnessDictionary(this, titlesId, keysId);
-            String html = generateChartHTML();
-
             mTitlesId = intent.getExtras().getInt(HomeActivity.ROW_TITLE_ID);
             mKeysId = intent.getExtras().getInt(HomeActivity.KEYS_ID);
             mTitleId = intent.getExtras().getInt(HomeActivity.CHART_TITLE_ID);
-            Fragment f = HardnessChartFragment.newInstance(html);
+
+            mDictionary = new HardnessDictionary(this, mTitlesId, mKeysId);
+            Fragment f = HardnessChartFragment.newInstance();
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, f)
                     .commit();
+        } else {
+            mTitlesId = savedInstanceState.getInt(HomeActivity.ROW_TITLE_ID);
+            mKeysId = savedInstanceState.getInt(HomeActivity.KEYS_ID);
+            mTitleId = savedInstanceState.getInt(HomeActivity.CHART_TITLE_ID);
+            mDictionary = new HardnessDictionary(this, mTitlesId, mKeysId);
         }
     }
 
-    private String generateChartHTML() {
-        StringBuilder html = new StringBuilder();
-        html.append("<html><head></head><body style=\"background-color:#BDBBBB;\">" +
-                "<table width=\"90%%\" border=\"1\" align=\"center\" cellpadding=\"3\" cellspacing=\"0\" bordercolor=\"#CCCCC\">\n" +
-                "<tbody>" +
-                "<tr bgcolor=\"lightgrey\" align=\"center\">");
-        for (String key : mDictionary.keySet()) {
-            html.append(String.format("<td bgcolor=\"#FF0000\"><span style=\"font-weight:bold\">%s</span></td>", key));
-        }
-        html.append("</tr>");
+    protected void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        bundle.putInt(HomeActivity.ROW_TITLE_ID, mTitlesId);
+        bundle.putInt(HomeActivity.KEYS_ID, mKeysId);
+        bundle.putInt(HomeActivity.CHART_TITLE_ID, mTitleId);
+    }
 
-        int total = mDictionary.get(mDictionary.keySet().iterator().next()).size();
-        for (int i = 0; i < total; i++) {
-            html.append("<tr bgcolor=\"white\">");
-            for (String key : mDictionary.keySet()) {
-                html.append(String.format("<td><div align=\"center\">%s</div></td>", mDictionary.get(key).get(i)));
-            }
-        }
-        html.append("</tr>");
-        html.append("</table></body></html");
-        return html.toString();
+    public HardnessDictionary getHardnessDictionary() {
+        return mDictionary;
     }
 
     @Override

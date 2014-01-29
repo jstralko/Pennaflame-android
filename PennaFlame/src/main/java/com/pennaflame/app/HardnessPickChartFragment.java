@@ -84,26 +84,31 @@ public class HardnessPickChartFragment extends Fragment implements Spinner.OnIte
             return;
         }
 
+        String fontSize = "0.80em";
+        int screenWith = DimensionUtils.getScreenWidth(getActivity());
+        if (screenWith <= 480) {
+            fontSize = "0.65em";
+        }
         //show chart
         int selectedRange = rangeSpinner.getSelectedItemPosition();
         StringBuilder html = new StringBuilder();
-        html.append("<html><head></head><body style=\"background-color:#BDBBBB;\">" +
+        html.append("<html><head></head><body style=\"background-color:transparent;\">" +
                 "<table width=\"90%%\" border=\"1\" align=\"center\" cellpadding=\"3\" cellspacing=\"0\" bordercolor=\"#CCCCC\">" +
                 "<tbody>" +
                 "<tr bgcolor=\"lightgrey\" align=\"center\">");
         for (String key : mDictionary.keySet()) {
-            html.append(String.format("<td bgcolor=\"#FF0000\"><span style=\"font-weight:bold\">%s</span></td>", key));
+            html.append(String.format("<td bgcolor=\"#FF0000\"><span style=\"font-size:%s;font-weight:bold\">%s</span></td>", fontSize, key));
         }
         html.append("</tr><tr bgcolor=\"white\">");
 
         for (String key : mDictionary.keySet()) {
-            Log.d("PennaFlame", String.format("%s:%s", key, mDictionary.get(key).get(selectedRange)));
             html.append(String.format("<td><div align=\"center\">%s</div></td>",
                     mDictionary.get(key).get(selectedRange)));
         }
         html.append("</tr></table></body></html>");
 
         mChart.setVisibility(View.VISIBLE);
+        mChart.setBackgroundColor(0x0000000);
         mChart.loadDataWithBaseURL(null, html.toString(), "text/html", "UTF-8", null);
     }
 
