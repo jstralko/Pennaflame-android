@@ -1,53 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="wrap_content"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="fill_parent"
     android:layout_width="fill_parent"
     android:background="@drawable/background">
-    <LinearLayout
-        android:orientation="vertical"
+
+    <ScrollView
+        android:layout_height="fill_parent"
         android:layout_width="fill_parent"
-        android:layout_height="match_parent">
-
-        <View
+        android:background="@drawable/background">
+        <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="@dimen/redbanner_height"
-            android:background="@color/redbanner_color" />
+            android:layout_height="fill_parent">
 
-        <Spinner
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/topSpinner"
-            android:layout_marginTop="25dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:spinnerMode="dialog"
-            android:prompt="@string/spinner_prompt" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
 
-        <Spinner
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/rangeSpinner"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:spinnerMode="dialog"
-            android:prompt="@string/spinner_prompt" />
-        <WebView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/chartWebView"
-            android:layout_gravity="center_horizontal"
-            android:visibility="gone"
-            android:layout_marginTop="25dp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/redbanner_height"
+                    android:background="@color/redbanner_color" />
 
-        <Button
-            android:layout_width="268dp"
-            android:layout_height="wrap_content"
-            android:text="Show Chart"
-            android:id="@+id/showButton"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="25dp"
-            style="@style/PFButtonStyleSmall"/>
+                <Spinner
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/topSpinner"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:spinnerMode="dialog"
+                    android:prompt="@string/spinner_prompt" />
 
-    </LinearLayout>
-</ScrollView>
+                <Spinner
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rangeSpinner"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:spinnerMode="dialog"
+                    android:prompt="@string/spinner_prompt" />
+                <WebView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/chartWebView"
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="gone"
+                    android:layout_marginTop="25dp" />
+
+                <Button
+                    android:layout_width="268dp"
+                    android:layout_height="wrap_content"
+                    android:text="Show Chart"
+                    android:id="@+id/showButton"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="25dp"
+                    style="@style/PFButtonStyleSmall"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/pf_logo"
+                    android:layout_alignParentBottom="true" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+</FrameLayout>
