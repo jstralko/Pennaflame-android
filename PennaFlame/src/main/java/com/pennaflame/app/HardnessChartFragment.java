@@ -100,7 +100,7 @@ public class HardnessChartFragment extends Fragment {
 
         if (mDelegate.getChartTitle().equals(getString(R.string.title_activity_hardness_case_depth))) {
             //add the disclaimer
-            html.append("<div style=\"text-align:center;margin-top2%;margin-left:2%;margin-right:2%;font-size:0.8em;font:style:italic;\">");
+            html.append("<div style=\"text-align:center;margin-top:2%;margin-left:2%;margin-right:2%;font-size:0.8em;font:style:italic;\">");
             html.append(DISCLAIMER);
             html.append("</div>");
         }
