@@ -25,7 +25,12 @@ public class HardnessChartFragment extends Fragment {
 
     public interface HardnessChartDataSourceInterface {
         public HardnessDictionary getHardnessDictionary();
+        public String getChartTitle();
     }
+
+    private static final String DISCLAIMER = "Note: This chart is a general guide.  " +
+            "Hardenss and case depth's may vary depending on the flame hardening technique " +
+            "used and actual chemistry of the material.";
 
     private HardnessChartDataSourceInterface mDelegate;
     private WebView mChart;
@@ -91,8 +96,16 @@ public class HardnessChartFragment extends Fragment {
             }
         }
         html.append("</tr>");
-        html.append("</table></body></html");
+        html.append("</table>");
 
+        if (mDelegate.getChartTitle().equals(getString(R.string.title_activity_hardness_case_depth))) {
+            //add the disclaimer
+            html.append("<div style=\"text-align:center;margin-top2%;margin-left:2%;margin-right:2%;font-size:0.8em;font:style:italic;\">");
+            html.append(DISCLAIMER);
+            html.append("</div>");
+        }
+
+        html.append("</body></html");
         mMainChart.loadData(html.toString(), "text/html", "UTF-8");
 
         return rootView;

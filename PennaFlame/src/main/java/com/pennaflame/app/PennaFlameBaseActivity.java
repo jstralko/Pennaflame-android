@@ -68,16 +68,16 @@ public class PennaFlameBaseActivity extends ActionBarActivity {
                         intent = new Intent(PennaFlameBaseActivity.this, FractionDecimalActivity.class);
                         break;
                     case CASE_DEPTH_INDEX:
-                        intent = new Intent(PennaFlameBaseActivity.this, HardnessChartPickActivity.class);
+                        intent = new Intent(PennaFlameBaseActivity.this, HardnessChartActivity.class);
                         intent.putExtra(HomeActivity.ROW_TITLE_ID, R.array.case_depth_row_header_titles);
                         intent.putExtra(HomeActivity.KEYS_ID, R.array.case_depth_keys);
-                        intent.putExtra(HomeActivity.CHART_TITLE_ID, R.string.title_activity_hardness_case_depth);
+                        intent.putExtra(HomeActivity.CHART_TITLE_ID, getString(R.string.title_activity_hardness_case_depth));
                         break;
                     case HARDNESS_INDEX:
                         intent = new Intent(PennaFlameBaseActivity.this, HardnessChartPickActivity.class);
                         intent.putExtra(HomeActivity.ROW_TITLE_ID, R.array.row_header_titles);
                         intent.putExtra(HomeActivity.KEYS_ID, R.array.keys);
-                        intent.putExtra(HomeActivity.CHART_TITLE_ID, R.string.title_activity_hardness_chart);
+                        intent.putExtra(HomeActivity.CHART_TITLE_ID, getString(R.string.title_activity_hardness_chart));
                         break;
                     case MTI_INDEX:
                         intent = new Intent(PennaFlameBaseActivity.this, MTIStatementActivity.class);

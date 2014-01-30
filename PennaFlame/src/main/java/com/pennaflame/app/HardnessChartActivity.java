@@ -5,15 +5,13 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 
 public class HardnessChartActivity extends ActionBarActivity implements HardnessChartFragment.HardnessChartDataSourceInterface {
 
     private int mTitlesId;
     private int mKeysId;
-    private int mTitleId;
+    private String mTitle;
     private HardnessDictionary mDictionary;
 
     @Override
@@ -25,7 +23,8 @@ public class HardnessChartActivity extends ActionBarActivity implements Hardness
             Intent intent = getIntent();
             mTitlesId = intent.getExtras().getInt(HomeActivity.ROW_TITLE_ID);
             mKeysId = intent.getExtras().getInt(HomeActivity.KEYS_ID);
-            mTitleId = intent.getExtras().getInt(HomeActivity.CHART_TITLE_ID);
+            mTitle = intent.getExtras().getString(HomeActivity.CHART_TITLE_ID);
+            getSupportActionBar().setTitle(mTitle);
 
             mDictionary = new HardnessDictionary(this, mTitlesId, mKeysId);
             Fragment f = HardnessChartFragment.newInstance();
@@ -35,8 +34,9 @@ public class HardnessChartActivity extends ActionBarActivity implements Hardness
         } else {
             mTitlesId = savedInstanceState.getInt(HomeActivity.ROW_TITLE_ID);
             mKeysId = savedInstanceState.getInt(HomeActivity.KEYS_ID);
-            mTitleId = savedInstanceState.getInt(HomeActivity.CHART_TITLE_ID);
+            mTitle = savedInstanceState.getString(HomeActivity.CHART_TITLE_ID);
             mDictionary = new HardnessDictionary(this, mTitlesId, mKeysId);
+            getSupportActionBar().setTitle(mTitle);
         }
     }
 
@@ -44,11 +44,15 @@ public class HardnessChartActivity extends ActionBarActivity implements Hardness
         super.onSaveInstanceState(bundle);
         bundle.putInt(HomeActivity.ROW_TITLE_ID, mTitlesId);
         bundle.putInt(HomeActivity.KEYS_ID, mKeysId);
-        bundle.putInt(HomeActivity.CHART_TITLE_ID, mTitleId);
+        bundle.putString(HomeActivity.CHART_TITLE_ID, mTitle);
     }
 
     public HardnessDictionary getHardnessDictionary() {
         return mDictionary;
+    }
+
+    public String getChartTitle() {
+        return mTitle;
     }
 
     @Override
@@ -72,7 +76,7 @@ public class HardnessChartActivity extends ActionBarActivity implements Hardness
                 Intent upIntent = NavUtils.getParentActivityIntent(this);
                 upIntent.putExtra(HomeActivity.ROW_TITLE_ID, mTitlesId);
                 upIntent.putExtra(HomeActivity.KEYS_ID, mKeysId);
-                upIntent.putExtra(HomeActivity.CHART_TITLE_ID, mTitleId);
+                upIntent.putExtra(HomeActivity.CHART_TITLE_ID, mTitle);
                 NavUtils.navigateUpTo(this, upIntent);
                 return true;
         }

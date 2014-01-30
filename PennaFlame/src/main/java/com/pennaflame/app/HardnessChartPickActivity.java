@@ -31,9 +31,9 @@ public class HardnessChartPickActivity extends PennaFlameBaseActivity {
         if (savedInstanceState == null) {
             int titlesId = intent.getExtras().getInt(HomeActivity.ROW_TITLE_ID);
             int keysId = intent.getExtras().getInt(HomeActivity.KEYS_ID);
-            int titleId = intent.getExtras().getInt(HomeActivity.CHART_TITLE_ID);
+            String title = intent.getExtras().getString(HomeActivity.CHART_TITLE_ID);
 
-            getSupportActionBar().setTitle(getString(titleId));
+            getSupportActionBar().setTitle(title);
             mDictionary = new HardnessDictionary(this, titlesId, keysId);
 
             Fragment hpcf = HardnessPickChartFragment.newInstance(mDictionary);

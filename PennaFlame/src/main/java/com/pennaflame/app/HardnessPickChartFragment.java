@@ -64,12 +64,12 @@ public class HardnessPickChartFragment extends Fragment implements Spinner.OnIte
                 Bundle bundle = getActivity().getIntent().getExtras();
                 int titlesId = bundle.getInt(HomeActivity.ROW_TITLE_ID);
                 int keysId = bundle.getInt(HomeActivity.KEYS_ID);
-                int titleId = bundle.getInt(HomeActivity.CHART_TITLE_ID);
+                String title = bundle.getString(HomeActivity.CHART_TITLE_ID);
 
                 Intent intent = new Intent(getActivity(), HardnessChartActivity.class);
                 intent.putExtra(HomeActivity.ROW_TITLE_ID, titlesId);
                 intent.putExtra(HomeActivity.KEYS_ID, keysId);
-                intent.putExtra(HomeActivity.CHART_TITLE_ID, titleId);
+                intent.putExtra(HomeActivity.CHART_TITLE_ID, title);
                 startActivity(intent);
             }
         });
