@@ -1,75 +1,96 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <LinearLayout
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    android:background="@drawable/background">
+
+    <ScrollView
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@drawable/background"
-        tools:context=".ContactActivity$PlaceholderFragment">
+        android:layout_height="fill_parent">
 
-        <View
+        <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="@dimen/redbanner_height"
-            android:background="@color/redbanner_color" />
+            android:layout_height="fill_parent">
 
-        <TextView
+        <LinearLayout
+            android:id="@+id/layout"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text='"Pursuing Excellence"'
-            android:id="@+id/textView"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="25dp"
-            android:textStyle="bold|italic" />
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            tools:context=".ContactActivity$PlaceholderFragment">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Call"
-            android:id="@+id/callButton"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginTop="25dp"
-            style="@style/PFButtonStyleSmall"/>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/redbanner_height"
+                android:background="@color/redbanner_color" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Email"
-            android:id="@+id/emailButton"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginTop="25dp"
-            style="@style/PFButtonStyleSmall"/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text='"Pursuing Excellence"'
+                android:id="@+id/textView"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="25dp"
+                android:textStyle="bold|italic" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Website"
-            android:id="@+id/websiteButton"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginTop="25dp"
-            style="@style/PFButtonStyleSmall"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Call"
+                android:id="@+id/callButton"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="25dp"
+                style="@style/PFButtonStyleSmall"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="114dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/contactInfoTextView"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:gravity="center_vertical|center_horizontal"
-            android:textStyle="bold|italic"
-            android:layout_marginTop="25dp" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:id="@+id/emailButton"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="25dp"
+                style="@style/PFButtonStyleSmall"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Website"
+                android:id="@+id/websiteButton"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="25dp"
+                style="@style/PFButtonStyleSmall"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="114dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/contactInfoTextView"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:textStyle="bold|italic"
+                android:layout_marginTop="25dp" />
 
 
-    </LinearLayout>
-</ScrollView>
+        </LinearLayout>
+
+            <ImageView
+                android:id="@+id/pfLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/pf_logo"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/layout" />
+        </RelativeLayout>>
+    </ScrollView>
+</FrameLayout>
