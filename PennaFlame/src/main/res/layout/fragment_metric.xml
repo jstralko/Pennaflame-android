@@ -67,7 +67,8 @@
             android:layout_toRightOf="@+id/textView"
             android:textAlignment="center"
             android:gravity="center"
-            android:layout_marginRight="10dp" />
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true" />
 
         <Spinner
             android:layout_width="wrap_content"
@@ -85,7 +86,9 @@
             android:id="@+id/rightSpinner"
             android:layout_below="@+id/minusLeftButton"
             android:layout_toRightOf="@+id/textView"
-            android:layout_alignRight="@+id/minusRightButton" />
+            android:layout_alignRight="@+id/minusRightButton"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp" />
 
         <Button
             android:layout_width="wrap_content"
@@ -107,7 +110,9 @@
             android:layout_alignParentTop="true"
             android:layout_alignLeft="@+id/rightEditText"
             android:layout_marginTop="25dp"
-            android:layout_alignRight="@+id/rightEditText" />
+            android:layout_alignRight="@+id/rightEditText"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp" />
 
         <Button
             android:layout_width="wrap_content"
@@ -117,7 +122,9 @@
             android:id="@+id/minusRightButton"
             android:layout_below="@+id/rightEditText"
             android:layout_toRightOf="@+id/textView"
-            android:layout_alignRight="@+id/rightEditText" />
+            android:layout_alignRight="@+id/rightEditText"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -128,7 +135,8 @@
             android:layout_alignParentStart="false"
             android:layout_marginTop="0dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignBottom="@+id/rightSpinner" />
+            android:layout_alignBottom="@+id/rightSpinner"
+            android:layout_centerHorizontal="true" />
 
     </RelativeLayout>
   </ScrollView>

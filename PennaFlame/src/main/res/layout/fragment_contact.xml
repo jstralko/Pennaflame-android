@@ -90,7 +90,8 @@
                 android:src="@drawable/pf_logo"
                 android:layout_gravity="bottom|center_horizontal"
                 android:layout_alignParentBottom="true"
-                android:layout_below="@+id/layout" />
+                android:layout_below="@+id/layout"
+                android:layout_centerHorizontal="true" />
         </RelativeLayout>>
     </ScrollView>
 </FrameLayout>
