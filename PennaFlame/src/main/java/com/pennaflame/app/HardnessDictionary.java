@@ -15,13 +15,11 @@ import java.util.List;
 public class HardnessDictionary extends HashMap<String, ArrayList<CharSequence>> implements Serializable {
 
     private String mRowHeaderTitles[];
-
     private Context mContext;
 
     public HardnessDictionary(Context context, int titleResourceId, int keyResourceId) {
         mContext = context;
         Resources res = mContext.getResources();
-
         mRowHeaderTitles = res.getStringArray(titleResourceId);
         TypedArray myArray = res.obtainTypedArray(keyResourceId);
         int columns = myArray.length();

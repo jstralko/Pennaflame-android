@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <array name="row_header_titles">
+        <item>EQUO TIP Ld</item>
+        <item>ROCKWELL C HRC</item>
+        <item>BRINELL BHN</item>
+        <item>VICKERS HV DPH</item>
+        <item>SHORE C HSc</item>
+        <item>SHORE C HFRSc</item>
+    </array>
+
     <array name="keys">
         <item>@array/EQUO_TIP_Ld</item>
-        <item>@array/BRINELL_BHN</item>
         <item>@array/ROCKWELL_C_HRC</item>
+        <item>@array/BRINELL_BHN</item>
         <item>@array/VICKERS_HV_DPH</item>
         <item>@array/SHORE_C_HFRSc</item>
         <item>@array/SHORE_C_HSc</item>
     </array>
-    <array name="EQUO_TIP_Ld">
+    <string-array name="EQUO_TIP_Ld">
         <item>890</item>
         <item>878</item>
         <item>872</item>
@@ -44,8 +54,8 @@
         <item>470</item>
         <item>460</item>
         <item>450</item>
-    </array>
-    <array name="ROCKWELL_C_HRC">
+    </string-array>
+    <string-array name="ROCKWELL_C_HRC">
         <item>68.0</item>
         <item>66.9</item>
         <item>66.3</item>
@@ -81,8 +91,8 @@
         <item>-----</item>
         <item>-----</item>
         <item>-----</item>
-    </array>
-    <array name="BRINELL_BHN">
+    </string-array>
+    <string-array name="BRINELL_BHN">
         <item>-----</item>
         <item>-----</item>
         <item>-----</item>
@@ -118,9 +128,8 @@
         <item>194</item>
         <item>185</item>
         <item>177</item>
-
-    </array>
-    <array name="VICKERS_HV_DPH">
+    </string-array>
+    <string-array name="VICKERS_HV_DPH">
         <item>940</item>
         <item>899</item>
         <item>879</item>
@@ -156,8 +165,8 @@
         <item>201</item>
         <item>192</item>
         <item>183</item>
-    </array>
-    <array name="SHORE_C_HSc">
+    </string-array>
+    <string-array name="SHORE_C_HSc">
         <item>100</item>
         <item>97</item>
         <item>96</item>
@@ -193,8 +202,8 @@
         <item>-----</item>
         <item>-----</item>
         <item>-----</item>
-    </array>
-    <array name="SHORE_C_HFRSc">
+    </string-array>
+    <string-array name="SHORE_C_HFRSc">
         <item>105</item>
         <item>102</item>
         <item>101</item>
@@ -230,5 +239,5 @@
         <item>-----</item>
         <item>-----</item>
         <item>-----</item>
-    </array>
+    </string-array>
 </resources>

@@ -15,19 +15,6 @@
         <item>Decimal to Fraction Converter</item>
     </array>
 
-    <array name="row_header_titles">
-        <item>EQUO TIP Ld</item>
-        <item>ROCKWELL C HRC</item>
-        <item>BRINELL BHN</item>
-        <item>VICKERS HV DPH</item>
-        <item>SHORE C HSc</item>
-        <item>SHORE C HFRSc</item>
-    </array>
-    <array name="case_depth_row_header_titles">
-        <item>MATERIAL (ASM)</item>
-        <item>HARDNESS (Rc)</item>
-        <item>Case Depth Inches</item>
-    </array>
     <array name="units">
         <item>Millimeter</item>
         <item>Centimeter</item>

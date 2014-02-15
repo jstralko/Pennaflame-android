@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <array name="case_depth_row_header_titles">
+        <item>MATERIAL (ASM)</item>
+        <item>HARDNESS (Rc)</item>
+        <item>Case Depth Inches</item>
+    </array>
+
     <array name="case_depth_keys">
         <item>@array/material</item>
         <item>@array/hardness</item>
