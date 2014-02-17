@@ -7,16 +7,10 @@ package com.pennaflame.app;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
-
-import java.util.Set;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -29,7 +23,7 @@ public class HardnessChartFragment extends Fragment {
     }
 
     private static final String DISCLAIMER = "Note: This chart is a general guide.  " +
-            "Hardenss and case depth's may vary depending on the flame hardening technique " +
+            "Hardness and case depth's may vary depending on the flame hardening technique " +
             "used and actual chemistry of the material.";
 
     private HardnessChartDataSourceInterface mDelegate;
