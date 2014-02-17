@@ -108,7 +108,8 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/pf_logo"
                     android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/denominatorTextView" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>
