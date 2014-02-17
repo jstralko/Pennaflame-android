@@ -6,13 +6,13 @@ import android.content.res.TypedArray;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
  * Created by stralko on 10/23/13.
  */
-public class HardnessDictionary extends HashMap<String, ArrayList<CharSequence>> implements Serializable {
+public class HardnessDictionary extends LinkedHashMap<String, ArrayList<CharSequence>> implements Serializable {
 
     private String mRowHeaderTitles[];
     private Context mContext;

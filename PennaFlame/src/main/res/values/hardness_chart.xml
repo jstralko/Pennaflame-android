@@ -5,9 +5,10 @@
         <item>EQUO TIP Ld</item>
         <item>ROCKWELL C HRC</item>
         <item>BRINELL BHN</item>
-        <item>VICKERS HV DPH</item>
         <item>SHORE C HSc</item>
         <item>SHORE C HFRSc</item>
+        <item>VICKERS HV DPH</item>
+
     </array>
 
     <array name="keys">
