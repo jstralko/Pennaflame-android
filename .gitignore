@@ -29,3 +29,4 @@ local.properties
 .idea/libraries/android_support_v4.xml
 .DS_Store
 *.iml
+.idea/*
