@@ -20,4 +20,26 @@ android {
         minSdkVersion 7
         targetSdkVersion 19
     }
+    
+    signingConfigs {
+        release {
+            storeFile file("pennaflame-key.keystore")
+            keyAlias "pennaflame"
+	    /*
+	     * Need to add storePassword and keyPassword
+	     * I remove these since those are sensitive 
+	     * pieces of information.
+	     * Just replace <InsertPasswordHere> with the 
+	     * actually password.
+	     */
+	     storePassword "<InsertPasswordHere>"
+	     keyPassword "<InsertPasswordHere>"
+        }
+    }
+
+    buildTypes {
+	release {
+		signingConfig signingConfigs.release
+	}
+    }
 }
