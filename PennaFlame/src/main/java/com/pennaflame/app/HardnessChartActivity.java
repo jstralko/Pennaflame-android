@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
+import android.util.Log;
 
 public class HardnessChartActivity extends ActionBarActivity implements HardnessChartFragment.HardnessChartDataSourceInterface {
 
@@ -74,10 +75,15 @@ public class HardnessChartActivity extends ActionBarActivity implements Hardness
              */
             case android.R.id.home:
                 Intent upIntent = NavUtils.getParentActivityIntent(this);
-                upIntent.putExtra(HomeActivity.ROW_TITLE_ID, mTitlesId);
-                upIntent.putExtra(HomeActivity.KEYS_ID, mKeysId);
-                upIntent.putExtra(HomeActivity.CHART_TITLE_ID, mTitle);
-                NavUtils.navigateUpTo(this, upIntent);
+		if (upIntent == null) {
+			Log.w("PennaFlame", "upIntent is null calling finish()");
+			finish();
+		} else {
+                	upIntent.putExtra(HomeActivity.ROW_TITLE_ID, mTitlesId);
+                	upIntent.putExtra(HomeActivity.KEYS_ID, mKeysId);
+                	upIntent.putExtra(HomeActivity.CHART_TITLE_ID, mTitle);
+                	NavUtils.navigateUpTo(this, upIntent);
+		}
                 return true;
         }
         return super.onOptionsItemSelected(item);

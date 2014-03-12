@@ -8,11 +8,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 
+import android.content.Intent;
+import android.support.v4.app.NavUtils;
+import android.view.MenuItem;
+
 public class WebsiteActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_website);
 
         if (savedInstanceState == null) {
@@ -20,6 +25,16 @@ public class WebsiteActivity extends ActionBarActivity {
                     .add(R.id.container, new WebsiteFragment())
                     .commit();
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            Intent intent = NavUtils.getParentActivityIntent(this);
+            NavUtils.navigateUpTo(this, intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     /**

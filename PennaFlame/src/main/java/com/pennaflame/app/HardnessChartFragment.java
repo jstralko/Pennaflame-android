@@ -70,7 +70,7 @@ public class HardnessChartFragment extends Fragment {
         }
         html.append("</tr></table></body></html>");
 
-        mChart.loadData(html.toString(), "text/html", "UTF-8");
+        mChart.loadDataWithBaseURL(null, html.toString(), "text/html", "UTF-8", null);
 
         html = new StringBuilder();
         html.append("<html><head></head><body style=\"background-color:transparent;\">" +
@@ -100,7 +100,7 @@ public class HardnessChartFragment extends Fragment {
         }
 
         html.append("</body></html");
-        mMainChart.loadData(html.toString(), "text/html", "UTF-8");
+        mMainChart.loadDataWithBaseURL(null, html.toString(), "text/html", "UTF-8", null);
 
         return rootView;
     }

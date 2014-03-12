@@ -47,15 +47,15 @@
             android:parentActivityName="ContactActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ContactActivity" />
+                android:value="com.pennaflame.app.ContactActivity" />
         </activity>
         <activity
             android:name="com.pennaflame.app.HardnessChartActivity"
             android:label="@string/title_activity_hardness_chart"
-            android:parentActivityName="HardnessChartPickActivity" >
+            android:parentActivityName="com.pennaflame.app.HardnessChartPickActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="HardnessChartPickActivity" />
+                android:value="com.pennaflame.app.HardnessChartPickActivity" />
         </activity>
         <activity
             android:name="com.pennaflame.app.FractionDecimalActivity"
