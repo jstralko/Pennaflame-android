@@ -22,11 +22,7 @@ local.properties
 
 #vim files
 *~
-.idea/gradle.xml
 .gradle/
-.idea/workspace.xml
-.idea/libraries/
-.idea/libraries/android_support_v4.xml
+.idea/
 .DS_Store
 *.iml
-.idea/*
