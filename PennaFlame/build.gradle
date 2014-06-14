@@ -3,36 +3,36 @@ buildscript {
         maven { url 'http://repo1.maven.org/maven2' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.9.+'
+        classpath 'com.android.tools.build:gradle:0.11.+'
     }
 }
 apply plugin: 'android'
 
 dependencies {
-	compile 'com.android.support:appcompat-v7:18.0.+'
+    compile 'com.android.support:appcompat-v7:19.1.+'
 }
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19"
+    buildToolsVersion "19.1.0"
 
     defaultConfig {
         minSdkVersion 7
         targetSdkVersion 19
     }
-    
+
     signingConfigs {
         release {
             storeFile file("pennaflame-key.keystore")
             keyAlias "pennaflame"
-	    storePassword System.console().readLine("\n\$ Enter keystore password: ")
-            keyPassword System.console().readLine("\n\$ Enter key password: ")
+            //storePassword System.console().readLine("\n\$ Enter keystore password: ")
+            //keyPassword System.console().readLine("\n\$ Enter key password: ")
         }
     }
 
     buildTypes {
-	release {
-		signingConfig signingConfigs.release
-	}
+        release {
+            signingConfig signingConfigs.release
+        }
     }
 }
