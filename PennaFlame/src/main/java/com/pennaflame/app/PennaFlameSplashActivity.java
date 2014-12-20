@@ -16,8 +16,8 @@ public class PennaFlameSplashActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
+        super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_penna_flame_splash);
 
